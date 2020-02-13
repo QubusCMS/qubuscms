@@ -1,0 +1,12 @@
+.DS_Store
+.htaccess
+/nbproject/
+config.php
+phinx.php
+apidoc.json
+dev.sql
+/docs/
+private/db/.htaccess
+private/.tmb
+private/.quarantine
+/vendor/

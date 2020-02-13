@@ -1,0 +1,18 @@
+[13-Dec-2019 00:34:15 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'qubus_dev.qub_plugin' doesn't exist in /Applications/MAMP/htdocs/qubus/vendor/liten/liten/Liten/Orm.php:243
+Stack trace:
+#0 /Applications/MAMP/htdocs/qubus/vendor/liten/liten/Liten/Orm.php(243): PDO->prepare('SELECT * FROM q...')
+#1 /Applications/MAMP/htdocs/qubus/app/src/Database/TriTanDb.php(447): Liten\Orm->query('SELECT * FROM q...')
+#2 /Applications/MAMP/htdocs/qubus/app/src/Database/TriTanDb.php(477): TriTan\Database\TriTanDb->queryPrepared('SELECT * FROM q...')
+#3 /Applications/MAMP/htdocs/qubus/app/src/Common/Plugin/PluginGetActivatedMapper.php(23): TriTan\Database\TriTanDb->getResults('SELECT * FROM q...')
+#4 /Applications/MAMP/htdocs/qubus/app/src/Common/Plugin/PluginGetActivated.php(24): TriTan\Common\Plugin\PluginGetActivatedMapper->get()
+#5 /Applications/MAMP/htdocs/qubus/app/src/Common/Plugin/PluginLoad.php(38): TriTan\Common\Plugin\PluginGetActivated->get()
+#6 /Applications/MAMP/htdocs/qubus/app/functions/hook.php in /Applications/MAMP/htdocs/qubus/vendor/liten/liten/Liten/Orm.php on line 243
+[13-Dec-2019 00:34:16 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'qubus_dev.qub_plugin' doesn't exist in /Applications/MAMP/htdocs/qubus/vendor/liten/liten/Liten/Orm.php:243
+Stack trace:
+#0 /Applications/MAMP/htdocs/qubus/vendor/liten/liten/Liten/Orm.php(243): PDO->prepare('SELECT * FROM q...')
+#1 /Applications/MAMP/htdocs/qubus/app/src/Database/TriTanDb.php(447): Liten\Orm->query('SELECT * FROM q...')
+#2 /Applications/MAMP/htdocs/qubus/app/src/Database/TriTanDb.php(477): TriTan\Database\TriTanDb->queryPrepared('SELECT * FROM q...')
+#3 /Applications/MAMP/htdocs/qubus/app/src/Common/Plugin/PluginGetActivatedMapper.php(23): TriTan\Database\TriTanDb->getResults('SELECT * FROM q...')
+#4 /Applications/MAMP/htdocs/qubus/app/src/Common/Plugin/PluginGetActivated.php(24): TriTan\Common\Plugin\PluginGetActivatedMapper->get()
+#5 /Applications/MAMP/htdocs/qubus/app/src/Common/Plugin/PluginLoad.php(38): TriTan\Common\Plugin\PluginGetActivated->get()
+#6 /Applications/MAMP/htdocs/qubus/app/functions/hook.php in /Applications/MAMP/htdocs/qubus/vendor/liten/liten/Liten/Orm.php on line 243

@@ -1,0 +1,32 @@
+{
+    "name": "Qubus-CMS",
+    "version": "1.0.0",
+    "description": "Qubus CMS is a developer centric, lightweight content management system (CMS) and content management framework (CMF). It is easy to install, easy to manage, and easy to extend. The majority of TriTan's codebase is derived from WordPress, however, TriTan is not a fork of WordPress. It also should not be seen as a replacement for WordPress, Drupal, Joomla or any of the top used CMS's out there.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/parkerj/Qubus-CMS.git"
+    },
+    "contributors": ["Joshua Parker"],
+    "keywords": [
+        "cms",
+        "cms framework",
+        "headless",
+        "headless cms",
+        "restful api",
+        "api first"
+    ],
+    "author": {
+        "name": "Joshua Parker",
+        "email": "josh@joshuaparker.blog",
+        "url": "https://www.qubuscms.com/"
+    },
+    "license": "GPLv3",
+    "bugs": {
+        "url": "https://github.com/parkerj/Qubus-CMS/issues"
+    },
+    "homepage": "https://github.com/parkerj/Qubus-CMS#readme"
+}

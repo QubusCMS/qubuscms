@@ -1,0 +1,20 @@
+[
+    1578103630,
+    {
+        "user_id": 1,
+        "user_login": "qubus",
+        "user_fname": "Qubus",
+        "user_lname": "CMS",
+        "user_email": "qubus@ttcms.com",
+        "user_pass": "0ce0a2e6eecbc7aae3ff32843b01adb8",
+        "user_url": "https:\/\/www.qubuscms.com\/",
+        "user_timezone": "America\/Denver",
+        "user_date_format": "d F Y",
+        "user_time_format": "h:i A",
+        "user_locale": "en",
+        "user_addedby": 1,
+        "user_registered": "2019-05-11 02:05:56",
+        "user_modified": "2019-12-31 09:58:15",
+        "user_activation_key": ""
+    }
+]

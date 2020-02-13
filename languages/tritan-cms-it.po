@@ -1,0 +1,1703 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TriTan CMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-11-17 11:02-0500\n"
+"PO-Revision-Date: 2018-11-17 11:04-0500\n"
+"Last-Translator: \n"
+"Language-Team: 7 Media Web Solutions, LLC <email@7mediaws.org>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: tritan-cms\n"
+"X-Poedit-KeywordsList: __;esc_attr__;esc_html__;t__\n"
+"X-Poedit-Basepath: ../app\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 2.2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: src/Laci\n"
+"X-Poedit-SearchPathExcluded-1: src/Command\n"
+
+#: functions/auth-function.php:188
+#, php-format
+msgid "Sorry, an account for <strong>%s</strong> does not exist."
+msgstr ""
+
+#: functions/auth-function.php:266
+msgid "<strong>ERROR</strong>: The username/email field is empty."
+msgstr ""
+
+#: functions/auth-function.php:275
+msgid "<strong>ERROR</strong>: The password field is empty."
+msgstr "<strong>ERRORE</strong>: non hai inserito la tua password."
+
+#: functions/auth-function.php:289
+msgid "<strong>ERROR</strong>: Invalid email address."
+msgstr "<strong>ERRORE</strong>: Chiave reCAPTCHA invalida."
+
+#: functions/auth-function.php:301
+msgid "<strong>ERROR</strong>: Invalid username."
+msgstr ""
+"<strong>ERRORE</strong>: Nome utente non valido o non registrato, indirizzo "
+"email o password non corretti."
+
+#: functions/auth-function.php:325
+msgid "<strong>ERROR</strong>: The password you entered is incorrect."
+msgstr ""
+
+#: functions/auth-function.php:358
+msgid "\"$user\" should be an array."
+msgstr ""
+
+#: functions/auth-function.php:381 routers/user.router.php:302
+#: routers/user.router.php:338 routers/user.router.php:427
+msgid "yes"
+msgstr "sì"
+
+#: functions/auth-function.php:381 routers/user.router.php:302
+#: routers/user.router.php:338 routers/user.router.php:427
+msgid "no"
+msgstr "no"
+
+#: functions/core-function.php:143
+msgid "Release"
+msgstr "Uscita"
+
+#: functions/core-function.php:217
+msgid "Unknown"
+msgstr "Sconosciuto"
+
+#: functions/core-function.php:328
+msgid "Invalid file: empty file given."
+msgstr ""
+
+#: functions/core-function.php:455
+msgid ""
+"Plugin could not be activated because it triggered a <strong>fatal error</"
+"strong>. <br /><br />"
+msgstr ""
+
+#: functions/db-function.php:444
+#, php-format
+msgid "Reassign post error: %s"
+msgstr ""
+
+#: functions/db-function.php:492
+#, php-format
+msgid "Reassign site error: %s"
+msgstr ""
+
+#: functions/hook-function.php:157 functions/hook-function.php:337
+#: src/Common/TriggerError.php:82 src/Common/TriggerError.php:287
+#, php-format
+msgid ""
+"%1$s() is <strong>deprecated</strong> since release %2$s! Use %3$s() "
+"instead. <br />"
+msgstr ""
+
+#: functions/hook-function.php:170 functions/hook-function.php:260
+#: functions/hook-function.php:350 src/Common/TriggerError.php:95
+#: src/Common/TriggerError.php:195 src/Common/TriggerError.php:300
+#, php-format
+msgid ""
+"%1$s() is <strong>deprecated</strong> since release %2$s with no alternative "
+"available. <br />"
+msgstr ""
+
+#: functions/hook-function.php:247 src/Common/TriggerError.php:182
+#, php-format
+msgid ""
+"%1$s() is <strong>deprecated</strong> since release %2$s! Use %3$s instead. "
+"<br />"
+msgstr ""
+
+#: functions/hook-function.php:434 src/Common/TriggerError.php:395
+#, php-format
+msgid ""
+"%1$s() was called with an argument that is <strong>deprecated</strong> since "
+"release %2$s! %3$s. <br />"
+msgstr ""
+
+#: functions/hook-function.php:447 src/Common/TriggerError.php:408
+#, php-format
+msgid ""
+"%1$s() was called with an argument that is <strong>deprecated</strong> since "
+"release %2$s with no alternative available. <br />"
+msgstr ""
+
+#: functions/hook-function.php:520 src/Common/TriggerError.php:485
+#, php-format
+msgid ""
+"%1$s is <strong>deprecated</strong> since release %2$s! Use %3$s instead."
+msgstr ""
+
+#: functions/hook-function.php:532 src/Common/TriggerError.php:497
+#, php-format
+msgid ""
+"%1$s is <strong>deprecated</strong> since release %2$s with no alternative "
+"available."
+msgstr ""
+
+#: functions/hook-function.php:582 src/Common/TriggerError.php:557
+#, php-format
+msgid "(This message was added in release %s.) <br /><br />"
+msgstr ""
+
+#: functions/hook-function.php:590 src/Common/TriggerError.php:564
+#, php-format
+msgid ""
+"Please see <a href=\"%s\">Debugging in TriTan CMS</a> for more information."
+msgstr ""
+
+#: functions/hook-function.php:598 src/Common/TriggerError.php:572
+#, php-format
+msgid "%1$s() was called <strong>incorrectly</strong>. %2$s %3$s <br />"
+msgstr ""
+
+#: functions/hook-function.php:634
+msgid "Copyright 2017"
+msgstr ""
+
+#: functions/hook-function.php:634 views/login/index.php:68
+msgid "Powered by"
+msgstr "Offerto da"
+
+#: functions/hook-function.php:634 views/_layouts/admin-layout.php:26
+#: views/_layouts/login-layout.php:23 views/admin/elfinder.php:34
+#: views/login/index.php:68
+msgid "TriTan CMS"
+msgstr ""
+
+#: functions/hook-function.php:788
+msgid "TriTan"
+msgstr ""
+
+#: functions/hook-function.php:788
+msgid "CMS"
+msgstr ""
+
+#: functions/hook-function.php:802
+msgid "Tri"
+msgstr ""
+
+#: functions/hook-function.php:802
+msgid "Tan"
+msgstr ""
+
+#: functions/hook-function.php:943
+msgid "Powered by TriTan CMS r"
+msgstr ""
+
+#: functions/hook-function.php:1173
+msgid "Plugin <strong>activated</strong>."
+msgstr "Plugin <strong>attivata.</strong> ."
+
+#: functions/hook-function.php:1197
+msgid "Plugin <strong>deactivated</strong>."
+msgstr ""
+
+#: functions/hook-function.php:1221
+msgid ""
+"Your system is currently in DEV mode. Please remember to set your system "
+"back to PROD mode after testing. When PROD mode is set, this warning message "
+"will disappear."
+msgstr ""
+
+#: functions/logger-function.php:88
+msgid "TriTan CMS System Alert!"
+msgstr ""
+
+#: functions/nodeq-function.php:50 functions/nodeq-function.php:64
+msgid "TriTan CMS Login Details"
+msgstr ""
+
+#: functions/nodeq-function.php:53
+msgid "TriTan CMS :: "
+msgstr ""
+
+#: functions/post-function.php:1699
+msgid "Invalid post id."
+msgstr "ID del testo non valido."
+
+#: functions/post-function.php:1844
+msgid "Post author cannot be zero or null."
+msgstr ""
+
+#: functions/post-function.php:1979
+msgid "The title and content are null"
+msgstr ""
+
+#: functions/post-function.php:2078
+msgid "Could not insert post into the post document."
+msgstr ""
+
+#: functions/post-function.php:2117
+msgid "Could not update post within the post document."
+msgstr ""
+
+#: functions/post-function.php:2235
+msgid "Invalid post ID."
+msgstr "ID del post non  valido."
+
+#: functions/post-function.php:2423 views/admin/post/create.php:28
+msgid "Create"
+msgstr "Crea"
+
+#: functions/post-function.php:2448 views/admin/options-general.php:29
+#: views/admin/options-reading.php:30 views/admin/permission/index.php:61
+#: views/admin/permission/update.php:37 views/admin/post/update-post.php:30
+#: views/admin/post/update-post.php:34 views/admin/post/update-post.php:51
+#: views/admin/post/update-posttype.php:28 views/admin/role/update.php:31
+#: views/admin/site/update.php:31 views/admin/user/index.php:66
+#: views/admin/user/profile.php:35 views/admin/user/update.php:35
+msgid "Update"
+msgstr "Aggiorna"
+
+#: functions/posttype-function.php:249 functions/posttype-function.php:500
+msgid "Invalid posttype id."
+msgstr ""
+
+#: functions/posttype-function.php:365
+msgid "The title and slug are null"
+msgstr ""
+
+#: functions/site-function.php:536 functions/site-function.php:544
+#: functions/site-function.php:936 functions/site-function.php:944
+msgid "The ID of this entity is invalid."
+msgstr ""
+
+#: functions/site-function.php:609 functions/site-function.php:617
+msgid "Cannot create a site with an empty domain name."
+msgstr ""
+
+#: functions/site-function.php:627 functions/site-function.php:635
+msgid "Sorry, that site already exists!"
+msgstr "Spiacenti, questo sito esiste già!"
+
+#: functions/site-function.php:715 functions/site-function.php:723
+msgid "Sorry, that site domain and path is already used."
+msgstr ""
+
+#: functions/site-function.php:803 functions/site-function.php:811
+msgid "Could not update site within the site document."
+msgstr ""
+
+#: functions/site-function.php:829 functions/site-function.php:837
+msgid "Could not write data to site document."
+msgstr ""
+
+#: functions/site-function.php:988 routers/site.router.php:209
+msgid "You are not allowed to delete the main site."
+msgstr ""
+
+#: functions/site-function.php:1000 functions/site-function.php:1008
+msgid "Site does not exist."
+msgstr ""
+
+#: functions/site-function.php:1071 functions/user-function.php:1376
+msgid "You are not allowed to delete the super administrator account."
+msgstr ""
+
+#: functions/user-function.php:205 functions/user-function.php:249
+msgid "Invalid user ID: empty ID given."
+msgstr ""
+
+#: functions/user-function.php:214 functions/user-function.php:258
+msgid "Invalid user id: user id must be numeric."
+msgstr ""
+
+#: functions/user-function.php:829 functions/user-function.php:1217
+#: functions/user-function.php:1228
+msgid "Invalid user id."
+msgstr ""
+
+#: functions/user-function.php:881
+msgid "Cannot create a user with an empty login name."
+msgstr ""
+
+#: functions/user-function.php:888
+msgid "Username may not be longer than 60 characters."
+msgstr ""
+
+#: functions/user-function.php:897
+msgid "Sorry, that username already exists!"
+msgstr "Spiacente, questo nome utente esiste già!"
+
+#: functions/user-function.php:915
+#, php-format
+msgid "Sorry, the username <strong>%s</strong> is not allowed."
+msgstr ""
+
+#: functions/user-function.php:944
+msgid "Sorry, that email address is not valid."
+msgstr ""
+
+#: functions/user-function.php:978
+msgid "Sorry, that email address is already used."
+msgstr ""
+
+#: functions/user-function.php:1458
+msgid "Hi there,"
+msgstr "Ciao,"
+
+#: functions/user-function.php:1459
+#, php-format
+msgid "Welcome to %s! Here's how to log in: "
+msgstr ""
+
+#: functions/user-function.php:1461
+#, php-format
+msgid "Username: %s"
+msgstr "Nome utente: %s"
+
+#: functions/user-function.php:1462 functions/user-function.php:1511
+#: functions/user-function.php:1574
+#, php-format
+msgid "Password: %s"
+msgstr "Password: %s"
+
+#: functions/user-function.php:1465
+#, php-format
+msgid "If you have any problems, please contact us at %s."
+msgstr ""
+
+#: functions/user-function.php:1470
+msgid "New Account"
+msgstr "Nuovo account"
+
+#: functions/user-function.php:1477
+#, fuzzy, php-format
+#| msgid "New Account"
+msgid "[%s] New Account"
+msgstr "Nuovo account"
+
+#: functions/user-function.php:1506
+#, php-format
+msgid ""
+"Hello %s! You requested that your password be reset. Please see your new "
+"password below: <br />"
+msgstr ""
+
+#: functions/user-function.php:1514
+#, php-format
+msgid "If you still have problems with logging in, please contact us at %s."
+msgstr ""
+
+#: functions/user-function.php:1519
+#, fuzzy
+#| msgid "[%s] Password Reset"
+msgid "Password Reset"
+msgstr "[%s] Reimposta password"
+
+#: functions/user-function.php:1530
+#, php-format
+msgid "[%s] Notice of Password Reset"
+msgstr ""
+
+#: functions/user-function.php:1568
+#, php-format
+msgid ""
+"Hello %s! This is confirmation that your password on %s was updated to: <br /"
+">"
+msgstr ""
+
+#: functions/user-function.php:1577
+#, php-format
+msgid ""
+"If you did not initiate a password change/update, please contact us at %s."
+msgstr ""
+
+#: functions/user-function.php:1582
+msgid "Notice of Password Change"
+msgstr ""
+
+#: functions/user-function.php:1593
+#, php-format
+msgid "[%s] Notice of Password Change"
+msgstr ""
+
+#: functions/user-function.php:1630
+#, php-format
+msgid ""
+"Hello %s! This is confirmation that your email on %s was updated to: <br />"
+msgstr ""
+
+#: functions/user-function.php:1636
+#, php-format
+msgid "Email: %s"
+msgstr "Email: %s"
+
+#: functions/user-function.php:1639
+#, php-format
+msgid ""
+"If you did not initiate an email change/update, please contact us at %s."
+msgstr ""
+
+#: functions/user-function.php:1644
+msgid "Notice of Email Change"
+msgstr ""
+
+#: functions/user-function.php:1655
+#, php-format
+msgid "[%s] Notice of Email Change"
+msgstr ""
+
+#: routers/admin.router.php:26 routers/post.router.php:23
+#: routers/site.router.php:18 routers/user.router.php:24
+#: routers/user.router.php:356 routers/user.router.php:485
+msgid "401 - Error: Unauthorized."
+msgstr ""
+
+#: routers/admin.router.php:33 routers/post.router.php:30
+#: routers/site.router.php:25 routers/user.router.php:31
+msgid "403 - Error: Forbidden."
+msgstr ""
+
+#: routers/admin.router.php:45
+msgid "Admin Dashboard"
+msgstr ""
+
+#: routers/admin.router.php:53
+msgid "You do not have permission to manage the media library."
+msgstr ""
+
+#: routers/admin.router.php:64 views/_layouts/admin-layout.php:200
+#: views/admin/media.php:27
+msgid "Media Library"
+msgstr "Libreria Media"
+
+#: routers/admin.router.php:72
+msgid "You do not have permission to manage FTP."
+msgstr ""
+
+#: routers/admin.router.php:83 views/_layouts/admin-layout.php:150
+#: views/admin/ftp.php:29
+msgid "FTP"
+msgstr "FTP"
+
+#: routers/admin.router.php:95 routers/admin.router.php:141
+#: routers/admin.router.php:228
+msgid "You do not have permission to manage options."
+msgstr ""
+
+#: routers/admin.router.php:120 routers/admin.router.php:201
+#: routers/admin.router.php:250 routers/admin.router.php:861
+#: routers/admin.router.php:1095 routers/index.router.php:80
+#: routers/post.router.php:98 routers/post.router.php:156
+#: routers/post.router.php:409 routers/site.router.php:147
+#: routers/user.router.php:67
+msgid "Update Record"
+msgstr ""
+
+#: routers/admin.router.php:121 routers/admin.router.php:122
+#: routers/admin.router.php:202 routers/admin.router.php:251
+#: views/_layouts/admin-layout.php:260
+msgid "Options"
+msgstr "Opzioni"
+
+#: routers/admin.router.php:203 routers/admin.router.php:216
+#: views/admin/options-general.php:26 views/admin/options-general.php:45
+msgid "General Options"
+msgstr "Opzioni Generali"
+
+#: routers/admin.router.php:252 routers/admin.router.php:265
+#: views/admin/options-reading.php:27 views/admin/options-reading.php:46
+msgid "Reading Options"
+msgstr ""
+
+#: routers/admin.router.php:276
+msgid "You do not have permission to manage plugins."
+msgstr ""
+
+#: routers/admin.router.php:286 views/_layouts/admin-layout.php:206
+#: views/admin/plugin/index.php:15 views/admin/plugin/index.php:35
+msgid "Plugins"
+msgstr "Plugins"
+
+#: routers/admin.router.php:297
+msgid "You do not have permission to install plugins."
+msgstr ""
+
+#: routers/admin.router.php:325
+msgid ""
+"The file you are trying to upload is not the accepted file type (.zip). "
+"Please try again."
+msgstr ""
+
+#: routers/admin.router.php:339
+msgid "Your plugin was uploaded and installed properly."
+msgstr ""
+
+#: routers/admin.router.php:345
+msgid ""
+"There was a problem uploading your plugin. Please try again or check the "
+"plugin package."
+msgstr ""
+
+#: routers/admin.router.php:355
+msgid "Install Plugins"
+msgstr "Installa i plugin"
+
+#: routers/admin.router.php:363
+msgid "Permission denied to activate a plugin."
+msgstr ""
+
+#: routers/admin.router.php:387
+msgid "The plugin generated unexpected output."
+msgstr ""
+
+#: routers/admin.router.php:409
+msgid "Permission denied to deactivate a plugin."
+msgstr ""
+
+#: routers/admin.router.php:462 routers/admin.router.php:594
+msgid "You do not have permission to access requested screen"
+msgstr ""
+
+#: routers/admin.router.php:805
+msgid "You don't have permission to view the requested screen"
+msgstr ""
+
+#: routers/admin.router.php:827 routers/admin.router.php:958
+msgid "You don't have permission to manage roles/permissions."
+msgstr ""
+
+#: routers/admin.router.php:838
+msgid "Manage Permissions"
+msgstr ""
+
+#: routers/admin.router.php:862 routers/admin.router.php:929
+#: views/admin/role/create.php:73 views/admin/role/create.php:87
+#: views/admin/role/update.php:76 views/admin/role/update.php:85
+#: views/admin/user/perm.php:46 views/admin/user/perm.php:55
+msgid "Permission"
+msgstr "Permesso"
+
+#: routers/admin.router.php:904 views/admin/permission/update.php:34
+msgid "Update Permission"
+msgstr ""
+
+#: routers/admin.router.php:928 routers/admin.router.php:1042
+#: routers/post.router.php:343 routers/site.router.php:70
+#: routers/user.router.php:180
+msgid "Create Record"
+msgstr ""
+
+#: routers/admin.router.php:947
+msgid "Create New Permission"
+msgstr ""
+
+#: routers/admin.router.php:978
+msgid "Manage Roles"
+msgstr ""
+
+#: routers/admin.router.php:1011 views/admin/role/update.php:27
+msgid "Update Role"
+msgstr ""
+
+#: routers/admin.router.php:1043 routers/admin.router.php:1096
+#: views/admin/user/create.php:172 views/admin/user/index.php:49
+#: views/admin/user/index.php:114 views/admin/user/update.php:158
+msgid "Role"
+msgstr "Ruolo"
+
+#: routers/admin.router.php:1069 views/_layouts/admin-layout.php:251
+#: views/admin/role/create.php:27
+msgid "Create Role"
+msgstr "Crea Ruolo"
+
+#: routers/admin.router.php:1116
+msgid "You don't have permission to view the System Snapshot Report screen."
+msgstr ""
+
+#: routers/admin.router.php:1131 views/admin/system-snapshot.php:33
+msgid "System Snapshot Report"
+msgstr ""
+
+#: routers/admin.router.php:1141
+msgid "You don't have permission to view the Error Log screen."
+msgstr ""
+
+#: routers/admin.router.php:1155 routers/admin.router.php:1182
+#: views/_layouts/admin-layout.php:152 views/error/index.php:26
+msgid "Error Logs"
+msgstr "Error Log"
+
+#: routers/admin.router.php:1191
+msgid "You don't have permission to view the Audit Trail screen."
+msgstr ""
+
+#: routers/admin.router.php:1206 views/_layouts/admin-layout.php:153
+#: views/error/audit.php:26
+msgid "Audit Trail"
+msgstr "Verifica audit"
+
+#: routers/admin.router.php:1218
+msgid "You are not allowed to flush the site cache."
+msgstr ""
+
+#: routers/admin.router.php:1242
+msgid "Cache flushed successfully."
+msgstr ""
+
+#: routers/index.router.php:15 routers/login.router.php:54
+msgid "Authentication"
+msgstr "Autenticazione"
+
+#: routers/index.router.php:16 views/_layouts/admin-layout.php:112
+msgid "Logout"
+msgstr "Esci"
+
+#: routers/index.router.php:81 views/admin/user/index.php:68
+#: views/login/index.php:42
+msgid "Reset Password"
+msgstr "Reimposta Password"
+
+#: routers/index.router.php:87
+msgid ""
+"A new password was sent to your email. May take a few minutes to arrive, so "
+"please be patient"
+msgstr ""
+
+#: routers/index.router.php:107
+msgid "The username or email you entered was incorrect."
+msgstr ""
+
+#: routers/login.router.php:55 routers/login.router.php:66
+#: views/_layouts/login-layout.php:23 views/login/index.php:16
+#: views/login/index.php:53
+msgid "Login"
+msgstr "Accedi"
+
+#: routers/post.router.php:46
+msgid "You do not have permission to manage posts."
+msgstr ""
+
+#: routers/post.router.php:83
+msgid "You do not have permission to create posts."
+msgstr ""
+
+#: routers/post.router.php:99 routers/post.router.php:157
+#: routers/post.router.php:306
+msgid "Post"
+msgstr "Articolo"
+
+#: routers/post.router.php:139 routers/post.router.php:236
+msgid "You do not have permission to update posts."
+msgstr ""
+
+#: routers/post.router.php:286
+msgid "You do not have permission to delete posts."
+msgstr ""
+
+#: routers/post.router.php:305 routers/post.router.php:501
+#: routers/site.router.php:229 routers/user.router.php:457
+msgid "Delete Record"
+msgstr ""
+
+#: routers/post.router.php:329
+msgid "You do not have permission to manage posts or post types."
+msgstr ""
+
+#: routers/post.router.php:344 routers/post.router.php:410
+#: routers/post.router.php:502 views/admin/post/create.php:79
+#: views/admin/post/posttype.php:81 views/admin/post/posttype.php:124
+#: views/admin/post/update-post.php:82
+msgid "Post Type"
+msgstr "Tipo di post"
+
+#: routers/post.router.php:379 views/_layouts/admin-layout.php:178
+#: views/admin/post/posttype.php:26 views/admin/post/posttype.php:74
+msgid "Post Types"
+msgstr "Tipi di post"
+
+#: routers/post.router.php:393
+msgid "You do not have permission to update posts or post types."
+msgstr ""
+
+#: routers/post.router.php:470 views/admin/post/update-posttype.php:25
+msgid "Update Post Type"
+msgstr "Aggiorna tipo di post"
+
+#: routers/post.router.php:486
+msgid "You do not have permission to delete posts or post types."
+msgstr ""
+
+#: routers/site.router.php:41
+msgid "You do not have permission to manage sites."
+msgstr ""
+
+#: routers/site.router.php:71 routers/site.router.php:148
+#: routers/site.router.php:230
+msgid "Site"
+msgstr "Sito"
+
+#: routers/site.router.php:98 views/_layouts/admin-layout.php:165
+#: views/admin/site/index.php:25 views/admin/site/index.php:80
+msgid "Sites"
+msgstr "Siti"
+
+#: routers/site.router.php:111
+msgid "You do not have permission to update sites."
+msgstr ""
+
+#: routers/site.router.php:185 views/admin/site/update.php:27
+msgid "Update Site"
+msgstr ""
+
+#: routers/site.router.php:199
+msgid "You do not have permission to delete sites."
+msgstr ""
+
+#: routers/site.router.php:250
+msgid "You don't have permission to manage sites."
+msgstr ""
+
+#: routers/site.router.php:271
+msgid "Manage Site Users"
+msgstr ""
+
+#: routers/site.router.php:284
+msgid "You do not have permission to delete site users."
+msgstr ""
+
+#: routers/user.router.php:46
+msgid "You must be logged in to update your profile."
+msgstr ""
+
+#: routers/user.router.php:68 views/_layouts/admin-layout.php:104
+#: views/admin/user/profile.php:29
+msgid "Profile"
+msgstr "Profilo"
+
+#: routers/user.router.php:86
+msgid "User Profile"
+msgstr "Profilo utente"
+
+#: routers/user.router.php:97
+msgid "You don't have permission to manage users."
+msgstr ""
+
+#: routers/user.router.php:108
+msgid "Manage Users"
+msgstr "Gestione Utenti"
+
+#: routers/user.router.php:120
+msgid "You don't have permission to create users."
+msgstr ""
+
+#: routers/user.router.php:145
+msgid "Username cannot be null."
+msgstr ""
+
+#: routers/user.router.php:181 routers/user.router.php:458
+msgid "User"
+msgstr "Utente"
+
+#: routers/user.router.php:200
+msgid "Create New User"
+msgstr "Crea Nuovo Utente"
+
+#: routers/user.router.php:211
+msgid "You don't have permission to update users."
+msgstr ""
+
+#: routers/user.router.php:276 views/admin/user/update.php:31
+msgid "Update User"
+msgstr "Aggiorna utente"
+
+#: routers/user.router.php:289
+msgid "You don't have permission to log in as another user."
+msgstr ""
+
+#: routers/user.router.php:345
+msgid "User switching was successful."
+msgstr ""
+
+#: routers/user.router.php:363
+msgid "Cookie is not properly set for user switching"
+msgstr ""
+
+#: routers/user.router.php:434
+msgid "Switching back to previous session was successful."
+msgstr ""
+
+#: routers/user.router.php:445
+msgid "You don't have permission to delete users."
+msgstr ""
+
+#: routers/user.router.php:510
+msgid "You are not allowed to reset user passwords."
+msgstr ""
+
+#: routers/user.router.php:521
+msgid "Requested user does not exist."
+msgstr ""
+
+#: routers/user.router.php:540
+#, php-format
+msgid "Password successfully updated for <strong>%s</strong>."
+msgstr ""
+
+#: routers/user.router.php:548
+#, php-format
+msgid "Could not update password for <strong>%s</strong>."
+msgstr ""
+
+#: views/_layouts/admin-layout.php:80
+msgid "Toggle navigation"
+msgstr "Navigazione Toggle"
+
+#: views/_layouts/admin-layout.php:98
+msgid "Member since"
+msgstr ""
+
+#: views/_layouts/admin-layout.php:108
+msgid "Switch back"
+msgstr ""
+
+#: views/_layouts/admin-layout.php:134
+msgid "Online"
+msgstr "Online"
+
+#: views/_layouts/admin-layout.php:139
+msgid "MAIN NAVIGATION"
+msgstr "NAVIGAZIONE PRINCIPALE"
+
+#: views/_layouts/admin-layout.php:143 views/admin/index.php:14
+#: views/admin/index.php:19 views/admin/user/perm.php:27
+msgid "Dashboard"
+msgstr "Bacheca"
+
+#: views/_layouts/admin-layout.php:149 views/admin/index.php:18
+msgid "Home"
+msgstr "Home"
+
+#: views/_layouts/admin-layout.php:151
+msgid "Snapshot Report"
+msgstr ""
+
+#: views/_layouts/admin-layout.php:159
+msgid "Flush Cache"
+msgstr ""
+
+#: views/_layouts/admin-layout.php:171
+msgid "Manage"
+msgstr "Gestisci"
+
+#: views/_layouts/admin-layout.php:172 views/_layouts/admin-layout.php:221
+#: views/admin/user/index.php:26 views/admin/user/perm.php:28
+msgid "Users"
+msgstr "Utenti"
+
+#: views/_layouts/admin-layout.php:191
+msgid "All"
+msgstr "Tutti"
+
+#: views/_layouts/admin-layout.php:192 views/_layouts/admin-layout.php:213
+#: views/_layouts/admin-layout.php:229
+msgid "Add New"
+msgstr "Aggiungi Nuovo"
+
+#: views/_layouts/admin-layout.php:212
+msgid "Installed Plugins"
+msgstr "Plugin installati"
+
+#: views/_layouts/admin-layout.php:228
+msgid "All Users"
+msgstr "Tutti gli Utenti"
+
+#: views/_layouts/admin-layout.php:230 views/_layouts/admin-layout.php:237
+msgid "Your Profile"
+msgstr "Il tuo profilo"
+
+#: views/_layouts/admin-layout.php:244
+msgid "User Roles"
+msgstr "Ruoli utente"
+
+#: views/_layouts/admin-layout.php:250 views/admin/role/index.php:26
+msgid "Roles"
+msgstr "Ruoli"
+
+#: views/_layouts/admin-layout.php:252 views/admin/permission/index.php:32
+msgid "Permissions"
+msgstr "Permessi"
+
+#: views/_layouts/admin-layout.php:253 views/admin/permission/create.php:28
+#: views/admin/permission/index.php:35
+msgid "Create Permission"
+msgstr ""
+
+#: views/_layouts/admin-layout.php:266
+msgid "General"
+msgstr "Generale"
+
+#: views/_layouts/admin-layout.php:267
+msgid "Reading"
+msgstr "Leggendo"
+
+#: views/_layouts/admin-layout.php:273
+msgid "Submit Issue"
+msgstr ""
+
+#: views/admin/index.php:15
+msgid "Control panel"
+msgstr ""
+
+#: views/admin/index.php:40
+msgid "Recently Posted"
+msgstr "Pubblicato di recente"
+
+#: views/admin/index.php:65
+msgid "TriTan CMS Feed"
+msgstr ""
+
+#: views/admin/options-general.php:50 views/admin/site/index.php:54
+#: views/admin/site/update.php:53
+msgid "Site Name"
+msgstr "Nome del sito"
+
+#: views/admin/options-general.php:54
+msgid "Site Description"
+msgstr "Descrizione del sito"
+
+#: views/admin/options-general.php:58
+msgid "Admin Email"
+msgstr ""
+"Inserisci i destinatari (email separate da virgole) per questo tipo di "
+"email. I destinatario predefinito è l'amministratore del sito: <code>%s</"
+"code>"
+
+#: views/admin/options-general.php:62
+msgid "Locale"
+msgstr "Località"
+
+#: views/admin/options-general.php:69
+msgid "Cookie Expire"
+msgstr ""
+
+#: views/admin/options-general.php:73
+msgid "Cookie Path"
+msgstr ""
+
+#: views/admin/options-general.php:77
+msgid "Cronjobs"
+msgstr ""
+
+#: views/admin/options-general.php:84
+msgid "Site Cache"
+msgstr ""
+
+#: views/admin/options-general.php:91
+msgid "Maintenance Mode"
+msgstr "Modalità Manutenzione"
+
+#: views/admin/options-general.php:98
+msgid "System Timezone"
+msgstr ""
+
+#: views/admin/options-general.php:107
+msgid "API Key"
+msgstr "Chiave API"
+
+#: views/admin/options-reading.php:51
+msgid "Site Theme"
+msgstr ""
+
+#: views/admin/options-reading.php:58
+msgid "Posts per Page"
+msgstr "Post per pagina"
+
+#: views/admin/options-reading.php:62
+msgid "Date Format"
+msgstr "Formato data"
+
+#: views/admin/options-reading.php:66
+msgid "Time Format"
+msgstr "Formato ora"
+
+#: views/admin/permission/create.php:31 views/admin/post/create.php:31
+#: views/admin/post/posttype.php:29 views/admin/role/create.php:30
+#: views/admin/site/index.php:29 views/admin/user/create.php:80
+#: views/admin/user/perm.php:63
+msgid "Save"
+msgstr "Salva"
+
+#: views/admin/permission/create.php:32 views/admin/permission/update.php:38
+#: views/admin/plugin/install.php:21 views/admin/post/create.php:32
+#: views/admin/post/update-post.php:36 views/admin/post/update-posttype.php:29
+#: views/admin/role/create.php:31 views/admin/role/update.php:32
+#: views/admin/site/update.php:32 views/admin/user/create.php:81
+#: views/admin/user/perm.php:64 views/admin/user/profile.php:36
+#: views/admin/user/update.php:36 views/admin/user/update.php:65
+msgid "Cancel"
+msgstr "Annulla"
+
+#: views/admin/permission/create.php:48 views/admin/permission/index.php:52
+#: views/admin/permission/index.php:68 views/admin/permission/update.php:56
+#: views/admin/plugin/index.php:42 views/admin/plugin/index.php:72
+#: views/admin/role/index.php:45 views/admin/role/index.php:64
+#: views/admin/site/index.php:88 views/admin/site/index.php:138
+#: views/admin/user/create.php:97 views/admin/user/profile.php:176
+#: views/admin/user/update.php:56
+msgid "Name"
+msgstr "Nome"
+
+#: views/admin/permission/create.php:56 views/admin/permission/index.php:51
+#: views/admin/permission/index.php:67 views/admin/permission/update.php:66
+#: views/admin/role/index.php:46
+msgid "Key"
+msgstr "Chiave"
+
+#: views/admin/permission/index.php:53 views/admin/permission/index.php:69
+#: views/admin/post/index.php:53 views/admin/role/index.php:47
+#: views/admin/role/index.php:65
+msgid "Edit"
+msgstr "Modifica"
+
+#: views/admin/plugin/index.php:18 views/admin/plugin/install.php:20
+msgid "Install"
+msgstr "Installa"
+
+#: views/admin/plugin/index.php:43 views/admin/plugin/index.php:73
+msgid "Version"
+msgstr "Versione"
+
+#: views/admin/plugin/index.php:44 views/admin/plugin/index.php:74
+#: views/admin/post/posttype.php:82 views/admin/post/posttype.php:125
+msgid "Description"
+msgstr "Descrizione"
+
+#: views/admin/plugin/index.php:45 views/admin/plugin/index.php:75
+#: views/admin/post/posttype.php:85 views/admin/post/posttype.php:128
+#: views/admin/site/index.php:91 views/admin/site/index.php:141
+#: views/admin/site/users.php:44 views/admin/site/users.php:124
+#: views/admin/user/index.php:50 views/admin/user/index.php:115
+#: views/error/audit.php:41 views/error/audit.php:63 views/error/index.php:45
+#: views/error/index.php:67
+msgid "Action"
+msgstr "Azione"
+
+#: views/admin/plugin/index.php:59
+msgid "Developer:"
+msgstr ""
+
+#: views/admin/plugin/index.php:61
+msgid "View Details"
+msgstr "Visualizza Dettagli"
+
+#: views/admin/plugin/install.php:17
+msgid "Install Plugin"
+msgstr "Installa il Plugin"
+
+#: views/admin/plugin/install.php:37
+msgid "File input"
+msgstr ""
+
+#: views/admin/post/create.php:48 views/admin/post/create.php:62
+#: views/admin/post/update-post.php:65
+msgid "Content"
+msgstr "Contenuto"
+
+#: views/admin/post/create.php:53 views/admin/post/index.php:35
+#: views/admin/post/index.php:87 views/admin/post/update-post.php:56
+msgid "Title"
+msgstr "Titolo"
+
+#: views/admin/post/create.php:57 views/admin/post/create.php:220
+#: views/admin/post/posttype.php:83 views/admin/post/posttype.php:126
+#: views/admin/post/update-post.php:60 views/admin/post/update-post.php:228
+msgid "Slug"
+msgstr "Slug"
+
+#: views/admin/post/create.php:100 views/admin/post/create.php:118
+#: views/admin/post/update-post.php:103 views/admin/post/update-post.php:121
+msgid "Publish"
+msgstr "Pubblica"
+
+#: views/admin/post/create.php:105 views/admin/post/update-post.php:108
+msgid "Publication Date"
+msgstr "Data di Pubblicazione"
+
+#: views/admin/post/create.php:114 views/admin/post/update-post.php:117
+#: views/admin/site/index.php:90 views/admin/site/index.php:140
+#: views/admin/site/update.php:71 views/admin/user/create.php:180
+#: views/admin/user/index.php:48 views/admin/user/index.php:113
+#: views/admin/user/update.php:166
+msgid "Status"
+msgstr "Stato"
+
+#: views/admin/post/create.php:120 views/admin/post/update-post.php:123
+msgid "Draft"
+msgstr "Bozza"
+
+#: views/admin/post/create.php:121 views/admin/post/update-post.php:124
+#, fuzzy
+#| msgid "Reading"
+msgid "Pending"
+msgstr "Leggendo"
+
+#: views/admin/post/create.php:122 views/admin/post/update-post.php:125
+#: views/admin/site/update.php:75
+msgid "Archive"
+msgstr "Archivio"
+
+#: views/admin/post/create.php:126 views/admin/post/index.php:36
+#: views/admin/post/index.php:88 views/admin/post/update-post.php:129
+msgid "Author"
+msgstr "Autore"
+
+#: views/admin/post/create.php:141 views/admin/post/update-post.php:144
+msgid "Post Attributes"
+msgstr "Attributi Articolo"
+
+#: views/admin/post/create.php:146 views/admin/post/update-post.php:149
+msgid "Parent"
+msgstr "Genitore"
+
+#: views/admin/post/create.php:155 views/admin/post/update-post.php:156
+msgid "Sidebar"
+msgstr "Barra laterale"
+
+#: views/admin/post/create.php:161 views/admin/post/update-post.php:163
+msgid "Show in Menu"
+msgstr ""
+
+#: views/admin/post/create.php:167 views/admin/post/update-post.php:170
+msgid "Show in Search"
+msgstr ""
+
+#: views/admin/post/create.php:181 views/admin/post/update-post.php:185
+msgid "Featured Image"
+msgstr "Immagine in evidenza"
+
+#: views/admin/post/create.php:187 views/admin/post/update-post.php:194
+msgid "Set featured image"
+msgstr "Imposta immagine in evidenza"
+
+#: views/admin/post/create.php:188 views/admin/post/update-post.php:192
+#: views/admin/post/update-post.php:195
+msgid "Remove featured image"
+msgstr "Rimuovi immagine in evidenza"
+
+#: views/admin/post/create.php:223 views/admin/post/update-post.php:231
+#, php-format
+msgid "If left blank, the system will auto generate the %s slug."
+msgstr ""
+
+#: views/admin/post/create.php:226 views/admin/post/index.php:68
+#: views/admin/post/posttype.php:109 views/admin/post/posttype.php:157
+#: views/admin/post/update-post.php:234 views/admin/post/update-post.php:256
+#: views/admin/site/index.php:122 views/admin/site/index.php:170
+#: views/admin/site/users.php:80 views/admin/site/users.php:104
+#: views/admin/user/index.php:94
+msgid "Close"
+msgstr "Chiudi"
+
+#: views/admin/post/index.php:19 views/admin/post/update-post.php:33
+msgid "New"
+msgstr "Nuovo"
+
+#: views/admin/post/index.php:37 views/admin/post/index.php:89
+msgid "Date"
+msgstr "Data"
+
+#: views/admin/post/index.php:39 views/admin/post/index.php:91
+msgid "Last Modified"
+msgstr "Ultima modifica"
+
+#: views/admin/post/index.php:54 views/admin/post/update-post.php:35
+msgid "Delete"
+msgstr "Elimina"
+
+#: views/admin/post/index.php:65 views/admin/post/update-post.php:253
+msgid "Are you sure you want to delete this post?"
+msgstr "Sei sicuro di voler rimuovere questo post?"
+
+#: views/admin/post/index.php:69 views/admin/post/posttype.php:110
+#: views/admin/post/update-post.php:257 views/admin/site/index.php:123
+#: views/admin/site/users.php:81 views/admin/site/users.php:105
+#: views/admin/user/index.php:95
+msgid "Confirm"
+msgstr "Conferma"
+
+#: views/admin/post/posttype.php:45
+msgid "Add New Post Type"
+msgstr "Aggiungi nuovo tipo di post"
+
+#: views/admin/post/posttype.php:50 views/admin/post/update-posttype.php:44
+msgid "Post Type Name"
+msgstr ""
+
+#: views/admin/post/posttype.php:54 views/admin/post/posttype.php:151
+#: views/admin/post/update-posttype.php:48
+msgid "Post Type Slug"
+msgstr "Prefisso del tipo di post"
+
+#: views/admin/post/posttype.php:58 views/admin/post/update-posttype.php:53
+msgid "Post Type Description"
+msgstr "Descrizione del tipo di post"
+
+#: views/admin/post/posttype.php:84 views/admin/post/posttype.php:127
+msgid "Count"
+msgstr "Conteggio"
+
+#: views/admin/post/posttype.php:106
+msgid ""
+"Are you sure you want to delete this post type? By deleting this post type, "
+"you also delete all posts connected to this post type as well."
+msgstr ""
+
+#: views/admin/post/posttype.php:154
+msgid "If left blank, the system will auto generate the post type slug."
+msgstr ""
+
+#: views/admin/role/create.php:47 views/admin/role/update.php:49
+msgid "Role Name"
+msgstr "Nome Ruolo"
+
+#: views/admin/role/create.php:55 views/admin/role/update.php:57
+msgid "Role Key"
+msgstr ""
+
+#: views/admin/role/create.php:74 views/admin/role/create.php:88
+#: views/admin/role/update.php:77 views/admin/role/update.php:86
+#: views/admin/user/perm.php:47 views/admin/user/perm.php:56
+msgid "Allow"
+msgstr "Permettere"
+
+#: views/admin/role/index.php:29
+msgid "Create a Role"
+msgstr ""
+
+#: views/admin/site/index.php:45
+msgid "Add New Site"
+msgstr ""
+
+#: views/admin/site/index.php:50
+msgid "Subdomain"
+msgstr ""
+
+#: views/admin/site/index.php:58 views/admin/site/update.php:58
+msgid "Path"
+msgstr "Percorso"
+
+#: views/admin/site/index.php:62 views/admin/site/update.php:63
+msgid "Administrator"
+msgstr "Amministratore"
+
+#: views/admin/site/index.php:87 views/admin/site/index.php:137
+#: views/admin/user/profile.php:220 views/admin/user/update.php:104
+msgid "URL"
+msgstr "URL"
+
+#: views/admin/site/index.php:89 views/admin/site/index.php:139
+msgid "Admin"
+msgstr "Amministratore"
+
+#: views/admin/site/index.php:119 views/admin/site/users.php:71
+msgid "Are you sure you want to delete this site and all it's content"
+msgstr ""
+
+#: views/admin/site/index.php:164
+msgid "Site Path"
+msgstr ""
+
+#: views/admin/site/index.php:167
+msgid ""
+"Based on your setup and where you installed TriTan, the system will figure "
+"out the correct path."
+msgstr ""
+
+#: views/admin/site/update.php:48
+msgid "Site Domain"
+msgstr ""
+
+#: views/admin/site/update.php:74
+msgid "Public"
+msgstr "Pubblico"
+
+#: views/admin/site/users.php:26
+msgid "Multisite Users"
+msgstr ""
+
+#: views/admin/site/users.php:41 views/admin/site/users.php:121
+#: views/admin/user/create.php:102 views/admin/user/index.php:45
+#: views/admin/user/index.php:110 views/admin/user/profile.php:181
+#: views/admin/user/update.php:61 views/error/audit.php:44
+#: views/error/audit.php:66 views/login/index.php:18 views/login/index.php:34
+msgid "Username"
+msgstr "Nome utente"
+
+#: views/admin/site/users.php:42 views/admin/site/users.php:122
+#: views/admin/user/create.php:120 views/admin/user/index.php:46
+#: views/admin/user/index.php:111 views/admin/user/profile.php:186
+#: views/admin/user/update.php:70
+msgid "First Name"
+msgstr "Nome"
+
+#: views/admin/site/users.php:43 views/admin/site/users.php:123
+#: views/admin/user/create.php:125 views/admin/user/index.php:47
+#: views/admin/user/index.php:112 views/admin/user/profile.php:191
+#: views/admin/user/update.php:75
+msgid "Last Name"
+msgstr "Cognome"
+
+#: views/admin/site/users.php:72
+msgid ""
+"Would you like to assign this user's site(s) to a different user? Choose "
+"below."
+msgstr ""
+
+#: views/admin/site/users.php:101
+msgid "Are you sure you want to permanently delete this user?"
+msgstr ""
+
+#: views/admin/system-snapshot.php:49
+msgid "** TriTan CMS DATA **"
+msgstr ""
+
+#: views/admin/system-snapshot.php:50
+msgid "Site URL:"
+msgstr "Sito:"
+
+#: views/admin/system-snapshot.php:51
+msgid "TriTan CMS Release:"
+msgstr ""
+
+#: views/admin/system-snapshot.php:52
+msgid "API Key:"
+msgstr "Chiave API:"
+
+#: views/admin/system-snapshot.php:52 views/admin/system-snapshot.php:77
+msgid "No"
+msgstr "No"
+
+#: views/admin/system-snapshot.php:52 views/admin/system-snapshot.php:77
+msgid "Yes"
+msgstr "Si"
+
+#: views/admin/system-snapshot.php:53
+msgid "Active User Count:"
+msgstr ""
+
+#: views/admin/system-snapshot.php:54
+msgid "DB Errors:"
+msgstr "Error Log:"
+
+#: views/admin/system-snapshot.php:54
+msgid "Click Here"
+msgstr ""
+
+#: views/admin/system-snapshot.php:55
+msgid "** TriTan CMS CONFIG **"
+msgstr ""
+
+#: views/admin/system-snapshot.php:56
+msgid "Environment:"
+msgstr ""
+
+#: views/admin/system-snapshot.php:56
+msgid "Production"
+msgstr "Produzione"
+
+#: views/admin/system-snapshot.php:56
+msgid "Development"
+msgstr "Sviluppo"
+
+#: views/admin/system-snapshot.php:57
+msgid "Base Path:"
+msgstr ""
+
+#: views/admin/system-snapshot.php:58
+msgid "Application Path:"
+msgstr "Data di Pubblicazione:"
+
+#: views/admin/system-snapshot.php:60
+msgid "** SERVER DATA **"
+msgstr ""
+
+#: views/admin/system-snapshot.php:61
+msgid "PHP Version:"
+msgstr "Versione:"
+
+#: views/admin/system-snapshot.php:62
+msgid "PHP Handler:"
+msgstr ""
+
+#: views/admin/system-snapshot.php:63
+msgid "Database Version:"
+msgstr ""
+
+#: views/admin/system-snapshot.php:64
+msgid "Server Software:"
+msgstr ""
+
+#: views/admin/system-snapshot.php:66
+msgid "** PHP CONFIGURATION **"
+msgstr ""
+
+#: views/admin/system-snapshot.php:67
+msgid "Memory Limit:"
+msgstr ""
+
+#: views/admin/system-snapshot.php:68
+msgid "Upload Max:"
+msgstr ""
+
+#: views/admin/system-snapshot.php:69
+msgid "Post Max:"
+msgstr "Articolo:"
+
+#: views/admin/system-snapshot.php:70
+msgid "Time Limit:"
+msgstr "Formato ora:"
+
+#: views/admin/system-snapshot.php:71
+msgid "Max Input Vars:"
+msgstr ""
+
+#: views/admin/system-snapshot.php:72
+msgid "Cookie Path:"
+msgstr ""
+
+#: views/admin/system-snapshot.php:73
+msgid "Regular Cookie TTL:"
+msgstr ""
+
+#: views/admin/system-snapshot.php:74
+msgid "Secure Cookie TTL:"
+msgstr ""
+
+#: views/admin/system-snapshot.php:75
+msgid "File Save Path:"
+msgstr ""
+
+#: views/admin/system-snapshot.php:76
+msgid "TriTan CMS Node:"
+msgstr ""
+
+#: views/admin/system-snapshot.php:77
+msgid "cURL Enabled:"
+msgstr ""
+
+#: views/admin/system-snapshot.php:79
+msgid "** Password Hash Cost **"
+msgstr ""
+
+#: views/admin/system-snapshot.php:80
+msgid "Appropriate Cost Found:"
+msgstr ""
+
+#: views/admin/user/create.php:77
+msgid "Create User"
+msgstr "Crea Utente"
+
+#: views/admin/user/create.php:104
+msgid "New User?"
+msgstr ""
+
+#: views/admin/user/create.php:142 views/admin/user/profile.php:209
+#: views/admin/user/update.php:93
+msgid "Contact info"
+msgstr "Informazioni di contatto"
+
+#: views/admin/user/create.php:148 views/admin/user/profile.php:215
+#: views/admin/user/update.php:99
+msgid "Email"
+msgstr "Email"
+
+#: views/admin/user/create.php:166 views/admin/user/update.php:152
+msgid "User Status"
+msgstr "Stato utente"
+
+#: views/admin/user/create.php:183 views/admin/user/index.php:61
+#: views/admin/user/update.php:169
+msgid "Active"
+msgstr "Attivo"
+
+#: views/admin/user/create.php:184 views/admin/user/index.php:61
+#: views/admin/user/update.php:170
+msgid "Inactive"
+msgstr "Inattivo"
+
+#: views/admin/user/create.php:185 views/admin/user/update.php:171
+msgid "Spammer"
+msgstr ""
+
+#: views/admin/user/create.php:186 views/admin/user/update.php:172
+msgid "Blocked"
+msgstr "Bloccato"
+
+#: views/admin/user/create.php:188
+msgid "If the account is Inactive, the user will be incapable of logging in."
+msgstr ""
+
+#: views/admin/user/create.php:204
+msgid "Email / Password"
+msgstr ""
+
+#: views/admin/user/create.php:210
+msgid "Send Email"
+msgstr "Invia Email"
+
+#: views/admin/user/create.php:214
+msgid "Send username & password to the user."
+msgstr ""
+
+#: views/admin/user/create.php:218 views/admin/user/profile.php:239
+#: views/login/index.php:21
+msgid "Password"
+msgstr "Password"
+
+#: views/admin/user/create.php:220
+msgid "Show Password"
+msgstr "Mostra la Password"
+
+#: views/admin/user/create.php:221
+msgid "Hide Password"
+msgstr ""
+
+#: views/admin/user/index.php:29 views/admin/user/update.php:34
+msgid "New User"
+msgstr "Nuovo utente"
+
+#: views/admin/user/index.php:67
+msgid "Edit Permissions"
+msgstr "Modificare Autorizzazioni"
+
+#: views/admin/user/index.php:70
+msgid "Switch to"
+msgstr "Acquista per conto di"
+
+#: views/admin/user/index.php:86
+msgid "Are you sure you want to remove the user from this site?"
+msgstr ""
+
+#: views/admin/user/index.php:87
+msgid ""
+"Would you like to assign this user's content to a different user? Choose "
+"below."
+msgstr ""
+
+#: views/admin/user/perm.php:25
+msgid "Manage Permissions for "
+msgstr ""
+
+#: views/admin/user/perm.php:29
+msgid "Manage User Permissions"
+msgstr ""
+
+#: views/admin/user/profile.php:52
+msgid "Layout Options"
+msgstr "Opzioni Layout"
+
+#: views/admin/user/profile.php:57
+msgid "Fixed Layout"
+msgstr ""
+
+#: views/admin/user/profile.php:65
+msgid "Toggle Sidebar"
+msgstr "Attiva/Disattiva Barra Laterale"
+
+#: views/admin/user/profile.php:73
+msgid "Skin"
+msgstr "Skin"
+
+#: views/admin/user/profile.php:245
+msgid "New Password"
+msgstr "Nuova password"
+
+#: views/admin/user/profile.php:247
+msgid "Leave blank if not updating password."
+msgstr ""
+
+#: views/admin/user/profile.php:265
+msgid "About yourself"
+msgstr ""
+
+#: views/admin/user/profile.php:271 views/admin/user/update.php:128
+msgid "Biography"
+msgstr "Biografia"
+
+#: views/admin/user/profile.php:276 views/admin/user/update.php:133
+msgid "Profile Picture"
+msgstr "Immagine del profilo"
+
+#: views/admin/user/profile.php:278
+#, php-format
+msgid "You can change your profile picture on <a href=\"%s\">Gravatar</a>."
+msgstr ""
+
+#: views/admin/user/update.php:64
+msgid "Change username"
+msgstr ""
+
+#: views/admin/user/update.php:122
+msgid "About the user"
+msgstr "Informazioni sull'utente"
+
+#: views/admin/user/update.php:174
+msgid ""
+"If the account is Inactive, the user will be incapable of logging into the "
+"system."
+msgstr ""
+
+#: views/error/404.php:8
+msgid "This page doesn't exist!"
+msgstr ""
+
+#: views/error/404.php:9
+#, php-format
+msgid "Would you like to try our <a href=\"%s\">homepage</a> instead?"
+msgstr ""
+
+#: views/error/audit.php:42 views/error/audit.php:64
+msgid "Process"
+msgstr "Processo"
+
+#: views/error/audit.php:43 views/error/audit.php:65
+msgid "Record"
+msgstr "Record"
+
+#: views/error/audit.php:45 views/error/audit.php:67
+msgid "Action Date"
+msgstr ""
+
+#: views/error/audit.php:46 views/error/audit.php:68
+msgid "Expire Date"
+msgstr "Data di scadenza"
+
+#: views/error/index.php:41 views/error/index.php:63
+msgid "Error Type"
+msgstr ""
+
+#: views/error/index.php:42 views/error/index.php:64
+msgid "String"
+msgstr "Stringa"
+
+#: views/error/index.php:43 views/error/index.php:65
+msgid "File"
+msgstr "File"
+
+#: views/error/index.php:44 views/error/index.php:66
+msgid "Line Number"
+msgstr ""
+
+#: views/login/index.php:25
+msgid "Remember Me"
+msgstr "Ricordami"
+
+#: views/login/index.php:28
+msgid "Log In"
+msgstr "Accedi"
+
+#: views/login/index.php:32 views/login/index.php:56
+msgid "Lost Password"
+msgstr "Password dimenticata"
+
+#: views/login/index.php:37
+msgid "Email Address"
+msgstr "Indirizzo Email"

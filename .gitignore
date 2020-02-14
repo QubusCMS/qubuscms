@@ -9,4 +9,8 @@ dev.sql
 private/db/.htaccess
 private/.tmb
 private/.quarantine
+private/sites/0
+private/sites/2
+private/sites/3
+private/sites/4
 /vendor/

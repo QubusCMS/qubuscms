@@ -2,8 +2,11 @@
 namespace TriTan\Common\User;
 
 use TriTan\Common\Container as c;
+use TriTan\Common\Context\HelperContext;
 use TriTan\Interfaces\User\UserInterface;
 use TriTan\Database\Database;
+use TriTan\Common\Acl\RoleRepository;
+use TriTan\Common\Acl\RoleMapper;
 
 /**
  * User Domain
@@ -396,9 +399,10 @@ final class User implements UserInterface
         }
 
         $new_role = (
-            new \TriTan\Common\Acl\RoleRepository(
-                new \TriTan\Common\Acl\RoleMapper(
-                    new Database(c::getInstance()->get('connect'))
+            new RoleRepository(
+                new RoleMapper(
+                    new Database(c::getInstance()->get('connect')),
+                    new HelperContext()
                 )
             )
         )->findIdByKey($role);

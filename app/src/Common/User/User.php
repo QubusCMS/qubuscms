@@ -390,7 +390,7 @@ final class User implements UserInterface
 
     public function setRole(string $role)
     {
-        $old_role = get_user_meta($this->getId(), c::getInstance()->get('tbl_prefix') . 'role', true);
+        $old_role = get_usermeta($this->getId(), c::getInstance()->get('tbl_prefix') . 'role', true);
 
         if (is_numeric($role)) {
             $message = 'Invalid role. Must use role_key (super, admin, editor, etc.) and not role_id.';
@@ -407,7 +407,7 @@ final class User implements UserInterface
             )
         )->findIdByKey($role);
 
-        update_user_meta($this->getId(), c::getInstance()->get('tbl_prefix') . 'role', $new_role, $old_role);
+        update_usermeta($this->getId(), c::getInstance()->get('tbl_prefix') . 'role', $new_role, $old_role);
 
         /**
          * Fires after the user's role has been added/changed.

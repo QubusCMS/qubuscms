@@ -534,7 +534,7 @@ function ttcms_post_status_label(string $status)
  * @param string $object_subtype Optional. The subtype of the object type.
  * @return mixed Sanitized $meta_value.
  */
-function sanitize_post_meta($meta_key, $meta_value, $object_subtype = '')
+function sanitize_postmeta($meta_key, $meta_value, $object_subtype = '')
 {
     $qudb = app()->qudb;
 
@@ -556,7 +556,7 @@ function sanitize_post_meta($meta_key, $meta_value, $object_subtype = '')
  * @return mixed Will be an array if $single is false. Will be value of meta data
  *               field if $single is true.
  */
-function get_post_meta(int $post_id, string $key = '', bool $single = false)
+function get_postmeta(int $post_id, string $key = '', bool $single = false)
 {
     $qudb = app()->qudb;
 
@@ -579,7 +579,7 @@ function get_post_meta(int $post_id, string $key = '', bool $single = false)
  * @param int $mid
  * @return array|bool
  */
-function get_post_meta_by_mid(int $mid)
+function get_postmeta_by_mid(int $mid)
 {
     $qudb = app()->qudb;
 
@@ -610,7 +610,7 @@ function get_post_meta_by_mid(int $mid)
  * @return int|bool Meta ID if the key didn't exist, true on successful update,
  *                  false on failure.
  */
-function update_post_meta(int $post_id, string $meta_key, $meta_value, $prev_value = '')
+function update_postmeta(int $post_id, string $meta_key, $meta_value, $prev_value = '')
 {
     $qudb = app()->qudb;
 
@@ -636,7 +636,7 @@ function update_post_meta(int $post_id, string $meta_key, $meta_value, $prev_val
  * @param string $meta_value
  * @return bool
  */
-function update_post_meta_by_mid(int $mid, string $meta_key, $meta_value)
+function update_postmeta_by_mid(int $mid, string $meta_key, $meta_value)
 {
     $qudb = app()->qudb;
 
@@ -666,7 +666,7 @@ function update_post_meta_by_mid(int $mid, string $meta_key, $meta_value)
  *                           Default false.
  * @return int|false Meta ID on success, false on failure.
  */
-function add_post_meta(int $post_id, string $meta_key, $meta_value, $unique = false)
+function add_postmeta(int $post_id, string $meta_key, $meta_value, $unique = false)
 {
     $qudb = app()->qudb;
 
@@ -697,7 +697,7 @@ function add_post_meta(int $post_id, string $meta_key, $meta_value, $unique = fa
  *                           non-scalar. Default empty.
  * @return bool True on success, false on failure.
  */
-function delete_post_meta(int $post_id, string $meta_key, $meta_value = '')
+function delete_postmeta(int $post_id, string $meta_key, $meta_value = '')
 {
     $qudb = app()->qudb;
 
@@ -720,7 +720,7 @@ function delete_post_meta(int $post_id, string $meta_key, $meta_value = '')
  * @param int $mid
  * @return bool
  */
-function delete_post_meta_by_mid(int $mid)
+function delete_postmeta_by_mid(int $mid)
 {
     $qudb = app()->qudb;
 
@@ -747,7 +747,7 @@ function delete_post_meta_by_mid(int $mid)
 function get_post_custom(int $post_id = 0)
 {
     $_post_id = ttcms()->obj['util']->absint($post_id);
-    return get_post_meta($_post_id);
+    return get_postmeta($_post_id);
 }
 
 /**
@@ -2328,7 +2328,7 @@ function ttcms_insert_post(array $postdata, bool $exception = false)
 
     if (!empty($_postdata['meta_field'])) {
         foreach ($_postdata['meta_field'] as $key => $value) {
-            update_post_meta((int) $post_id, $key, $value);
+            update_postmeta((int) $post_id, $key, $value);
         }
     }
 
@@ -2503,10 +2503,10 @@ function ttcms_delete_post(int $post_id = 0)
         }
     }
 
-    $post_meta_keys = get_post_meta((int) $post_id);
-    if ($post_meta_keys) {
-        foreach ($post_meta_keys as $meta_key => $meta_value) {
-            delete_post_meta((int) $post_id, $meta_key, $meta_value);
+    $postmeta_keys = get_postmeta((int) $post_id);
+    if ($postmeta_keys) {
+        foreach ($postmeta_keys as $meta_key => $meta_value) {
+            delete_postmeta((int) $post_id, $meta_key, $meta_value);
         }
     }
 

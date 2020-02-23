@@ -213,7 +213,7 @@ function site_exists(string $site_domain, string $site_path) : bool
  * @param array $params Parameters to set (assign_id or role).
  * @return bool True if usermete and role is added.
  */
-function add_site_user_meta(int $site_id, array $params = [])
+function add_site_usermeta(int $site_id, array $params = [])
 {
     $qudb = app()->qudb;
 
@@ -232,7 +232,7 @@ function add_site_user_meta(int $site_id, array $params = [])
         'admin_skin' => $userdata->admin_skin == null ? (string) 'skin-purple-light' : (string) $userdata->admin_skin
     ];
     foreach ($data as $meta_key => $meta_value) {
-        update_user_meta((int) $params['assign_id'], $prefix . $meta_key, $meta_value);
+        update_usermeta((int) $params['assign_id'], $prefix . $meta_key, $meta_value);
     }
 
     $user = new User();
@@ -295,7 +295,7 @@ function create_site_directories(int $site_id, $site, bool $update) : bool
  * @param object $old_site Site object of site that was deleted.
  * @return bool|\PDOException|\Qubus\Exception\Exception True on success or false on failure.
  */
-function delete_site_user_meta(int $site_id, $old_site)
+function delete_site_usermeta(int $site_id, $old_site)
 {
     $qudb = app()->qudb;
 
@@ -637,15 +637,15 @@ function add_user_to_site($user, $site, string $role)
      * }
      * @param $userdata User object.
      */
-    $meta = ActionFilterHook::getInstance()->applyFilter('add_user_user_meta', $meta, $userdata);
+    $meta = ActionFilterHook::getInstance()->applyFilter('add_user_usermeta', $meta, $userdata);
 
     // Make sure meta data doesn't already exist for this user.
     $site_id = $_site->getId();
     $prefix = $qudb->base_prefix . "{$site_id}_";
-    if (!get_user_meta($userdata->getId(), $prefix . $meta['role'], true)) {
+    if (!get_usermeta($userdata->getId(), $prefix . $meta['role'], true)) {
         // Update user meta.
         foreach ($meta as $key => $value) {
-            update_user_meta($userdata->getId(), $prefix . $key, $value);
+            update_usermeta($userdata->getId(), $prefix . $key, $value);
         }
     }
 
@@ -1171,7 +1171,7 @@ function ttcms_update_site($sitedata, bool $exception = false)
             ARRAY_A
         );
         foreach ($old_meta as $meta) {
-            delete_user_meta((int) $previous_owner, $meta['meta_key'], $meta['meta_value']);
+            delete_usermeta((int) $previous_owner, $meta['meta_key'], $meta['meta_value']);
         }
         add_user_to_site((int) $sitedata['site_owner'], (int) $sitedata['site_id'], 'admin');
     }
@@ -1613,10 +1613,10 @@ function new_site_schema(int $site_id, $site, bool $update)
      * }
      * @param object $userdata   User object.
      */
-    $meta = ActionFilterHook::getInstance()->applyFilter('new_site_user_meta', $meta, $userdata);
+    $meta = ActionFilterHook::getInstance()->applyFilter('new_site_usermeta', $meta, $userdata);
     // Update user meta.
     foreach ($meta as $key => $value) {
-        update_user_meta($userdata->getId(), $site_prefix . $key, $value);
+        update_usermeta($userdata->getId(), $site_prefix . $key, $value);
     }
     return (int) $site->getId();
 }

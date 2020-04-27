@@ -49,9 +49,7 @@ $app->group('/login', function () use ($app) {
             'throttled' 	=> function ($seconds) { // They've been throttled
                 ttcms_die(
                     sprintf(
-                        t__(
-                            'Login attempts exceeded. Try again in <strong>%s</strong>.'
-                        ),
+                        t__('Login attempts exceeded. Try again in <strong>%s</strong>.'),
                         seconds_to_minutes($seconds)
                     )
                 );

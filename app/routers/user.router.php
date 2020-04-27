@@ -476,7 +476,7 @@ $app->group('/admin', function () use ($app, $opt, $qudb, $current_user) {
         }
     });
 
-    $app->post('/user/(\d+)/d/', function ($id) use ($app) {
+    $app->get('/user/(\d+)/d/', function ($id) use ($app) {
         $user = ttcms_delete_user($id, $app->req->post['assign_id']);
 
         if ($user) {

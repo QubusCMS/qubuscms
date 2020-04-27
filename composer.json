@@ -48,7 +48,7 @@
         "psr/http-message": "^1.0",
         "stolz/assets": "^0.1.11",
         "tubalmartin/cssmin": "^4.1",
-        "mtdowling/cron-expression": "*",
+        "dragonmantank/cron-expression": "*",
         "guzzlehttp/guzzle": "^6.3",
         "league/oauth2-google": "^3.0",
         "spatie/image-optimizer": "^1.0",

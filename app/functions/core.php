@@ -5,11 +5,13 @@ use TriTan\Common\Options\Options;
 use TriTan\Common\Options\OptionsMapper;
 use TriTan\Common\Context\HelperContext;
 use TriTan\Common\FileSystem;
-use Cascade\Cascade;
-use Respect\Validation\Validator as v;
+use TriTan\Common\Password\PasswordGenerate;
 use Qubus\Hooks\ActionFilterHook;
 use Qubus\Exception\Http\Client\NotFoundException;
 use Qubus\Exception\Data\TypeException;
+use Cascade\Cascade;
+use Respect\Validation\Validator as v;
+use Stolz\Assets\Manager;
 
 define('CURRENT_RELEASE', get_current_release());
 define('REQUEST_TIME', ttcms()->obj['app']->req->server['REQUEST_TIME']);
@@ -399,7 +401,7 @@ function validate_plugin($plugin_name)
     $plugin = str_replace('.plugin.php', '', $plugin_name);
 
     if (!(
-            new \TriTan\Common\FileSystem(
+            new FileSystem(
                 ActionFilterHook::getInstance()
             )
             )->exists(TTCMS_PLUGIN_DIR . $plugin . DS . $plugin_name, false)
@@ -410,7 +412,7 @@ function validate_plugin($plugin_name)
     }
 
     $error = (
-            new \TriTan\Common\FileSystem(
+            new FileSystem(
                 ActionFilterHook::getInstance()
             )
             )->checkSyntax($file);
@@ -427,7 +429,7 @@ function validate_plugin($plugin_name)
 
     try {
         if ((
-                new \TriTan\Common\FileSystem(
+                new FileSystem(
                     ActionFilterHook::getInstance()
                 )
                 )->exists($file)
@@ -731,7 +733,7 @@ function get_plugin_data($plugin_file)
  * @file app/functions/core.php
  *
  * @since 1.0.0
- * @param numeric $seconds
+ * @param int $seconds
  */
 function convert_seconds_to_time($seconds)
 {
@@ -779,7 +781,9 @@ function convert_seconds_to_time($seconds)
  */
 function set_email_template($body)
 {
-    $tpl = (new FileSystem(ActionFilterHook::getInstance()))->getContents(APP_PATH . 'views' . DS . '_layouts' . DS . 'system_email.tpl');
+    $tpl = (new FileSystem(
+        ActionFilterHook::getInstance()
+    ))->getContents(APP_PATH . 'views' . DS . '_layouts' . DS . 'system_email.tpl');
 
     $template = ActionFilterHook::getInstance()->applyFilter('email_template', $tpl);
 
@@ -1109,7 +1113,7 @@ function validate_url($url)
 function get_site_themes($active = null)
 {
     $themes = (
-        new \TriTan\Common\FileSystem(
+        new FileSystem(
             ActionFilterHook::getInstance()
         ))->directoryListing(c::getInstance()->get('theme_dir'));
 
@@ -1161,7 +1165,7 @@ function ttcms_enqueue_css($config, $asset, $minify = false, $plugin_slug = null
                 'switchery-css' => 'bootstrap-switchery/switchery.min.css'
             ]
         ];
-        $default = new \Stolz\Assets\Manager($options);
+        $default = new Manager($options);
         $default->reset()->add($asset);
     } elseif ($config === 'plugin') {
         $options = [
@@ -1170,7 +1174,7 @@ function ttcms_enqueue_css($config, $asset, $minify = false, $plugin_slug = null
             'pipeline' => ActionFilterHook::getInstance()->applyFilter('plugin_css_pipeline', $minify),
             'pipeline_dir' => 'minify'
         ];
-        $default = new \Stolz\Assets\Manager($options);
+        $default = new Manager($options);
         $default->reset()->add($asset);
     } elseif ($config === 'theme') {
         $options = [
@@ -1179,7 +1183,7 @@ function ttcms_enqueue_css($config, $asset, $minify = false, $plugin_slug = null
             'pipeline' => ActionFilterHook::getInstance()->applyFilter('theme_css_pipeline', $minify),
             'pipeline_dir' => 'minify'
         ];
-        $default = new \Stolz\Assets\Manager($options);
+        $default = new Manager($options);
         $default->reset()->add($asset);
     }
     echo $default->css();
@@ -1239,7 +1243,7 @@ function ttcms_enqueue_js($config, $asset, $minify = false, $plugin_slug = null)
                 'switchery-js' => 'bootstrap-switchery/switchery.min.js'
             ]
         ];
-        $default = new \Stolz\Assets\Manager($options);
+        $default = new Manager($options);
         $default->reset()->add($asset);
     } elseif ($config === 'plugin') {
         $options = [
@@ -1248,7 +1252,7 @@ function ttcms_enqueue_js($config, $asset, $minify = false, $plugin_slug = null)
             'pipeline' => ActionFilterHook::getInstance()->applyFilter('plugin_js_pipeline', $minify),
             'pipeline_dir' => 'minify'
         ];
-        $default = new \Stolz\Assets\Manager($options);
+        $default = new Manager($options);
         $default->reset()->add($asset);
     } elseif ($config === 'theme') {
         $options = [
@@ -1257,7 +1261,7 @@ function ttcms_enqueue_js($config, $asset, $minify = false, $plugin_slug = null)
             'pipeline' => ActionFilterHook::getInstance()->applyFilter('theme_js_pipeline', $minify),
             'pipeline_dir' => 'minify'
         ];
-        $default = new \Stolz\Assets\Manager($options);
+        $default = new Manager($options);
         $default->reset()->add($asset);
     }
     echo $default->js();
@@ -1281,7 +1285,7 @@ function ttcms_enqueue_js($config, $asset, $minify = false, $plugin_slug = null)
 function generate_random_password(int $length = 12, bool $special_chars = true, bool $extra_special_chars = false)
 {
     return (
-        new \TriTan\Common\Password\PasswordGenerate(
+        new PasswordGenerate(
             ActionFilterHook::getInstance()
         )
     )->generate($length, $special_chars, $extra_special_chars);
@@ -1343,7 +1347,7 @@ function ttcms_maintenance_mode($app)
 function check_file_exists($filename, $throw = true)
 {
     return (
-        new \TriTan\Common\FileSystem(
+        new FileSystem(
             ActionFilterHook::getInstance()
         )
     )->exists($filename, $throw);

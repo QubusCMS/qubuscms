@@ -1,6 +1,8 @@
 <?php
 use TriTan\Common\Mailer;
 use TriTan\NodeQ;
+use TriTan\Common\Date;
+use TriTan\Common\Container as c;
 use Qubus\Hooks\ActionFilterHook;
 use Qubus\Exception\Exception;
 use Defuse\Crypto\Crypto;
@@ -39,10 +41,10 @@ function generate_encryption_node()
 
     $encrypt->begin();
     try {
-        $key = \Defuse\Crypto\Key::createNewRandomKey();
+        $key = Key::createNewRandomKey();
         $encrypt->insert([
             'encryption_key' => (string) $key->saveToAsciiSafeString(),
-            'encryption_created_at' => (string) (new \TriTan\Common\Date())->current('db')
+            'encryption_created_at' => (string) (new Date())->current('db')
         ]);
         $encrypt->commit();
     } catch (Exception $ex) {
@@ -74,17 +76,25 @@ function ttcms_nodeq_login_details()
 {
     $qudb = app()->qudb;
     $nodeq = new NodeQ();
+    $option = new \TriTan\Common\Options\Options(
+        new TriTan\Common\Options\OptionsMapper(
+            $qudb,
+            new TriTan\Common\Context\HelperContext()
+        )
+    );
 
     $sql = $nodeq->table($qudb->prefix . 'login')->where('login_sent', (int) 0)->get();
     $decrypt = $nodeq->table($qudb->prefix . 'encryption')->where('encryption_id', 1)->first();
 
-    if ($sql->count() == 0) {
-        $sql->delete();
+    if (count(array_filter($sql)) == 0) {
+        foreach ($sql as $r) {
+            $nodeq->table($qudb->prefix . 'login')->where('login_id', (int) esc_html($r['login_id']))->delete();
+        }
     }
 
-    if ($sql->count() > 0) {
+    if (count($sql) > 0) {
         foreach ($sql as $r) {
-            $site_name = ttcms()->obj['option']->read('sitename');
+            $site_name = $option->read('sitename');
             $user = get_userdata((int) $r['login_userid']);
             try {
                 $password = Crypto::decrypt(
@@ -126,8 +136,8 @@ function ttcms_nodeq_login_details()
                 esc_html__(
                     'If you have any problems, please contact us at <a href="mailto:%s">%s</a>.'
                 ),
-                ttcms()->obj['option']->read('admin_email'),
-                ttcms()->obj['option']->read('admin_email')
+                $option->read('admin_email'),
+                $option->read('admin_email')
             ) . "</p>";
 
             $message = process_email_html($message, esc_html__('New Account'));
@@ -171,15 +181,25 @@ function ttcms_nodeq_reset_password()
 {
     $qudb = app()->qudb;
     $nodeq = new NodeQ();
+    $option = new \TriTan\Common\Options\Options(
+        new TriTan\Common\Options\OptionsMapper(
+            $qudb,
+            new TriTan\Common\Context\HelperContext()
+        )
+    );
 
     $sql = $nodeq->table($qudb->prefix . 'password_reset')->where('password_reset_sent', (int) 0)->get();
     $decrypt = $nodeq->table($qudb->prefix . 'encryption')->where('encryption_id', 1)->first();
 
-    if ($sql->count() == 0) {
-        $sql->delete();
+    if (count($sql) == 0) {
+        foreach ($sql as $r) {
+            $nodeq->table($qudb->prefix . 'password_reset')
+              ->where('password_reset_id', (int) esc_html($r['password_reset_id']))
+              ->delete();
+        }
     }
 
-    if ($sql->count() > 0) {
+    if (count($sql) > 0) {
         foreach ($sql as $r) {
             $site_name = ttcms()->obj['option']->read('sitename');
             $user = get_userdata((int) $r['password_reset_userid']);

@@ -9,6 +9,9 @@ use TriTan\Common\User\UserPermissionMapper;
 use TriTan\Common\User\UserRoleRepository;
 use TriTan\Common\User\UserRoleMapper;
 use TriTan\Common\Context\HelperContext;
+use TriTan\Common\Password\PasswordCheck;
+use TriTan\Common\Password\PasswordSetMapper;
+use TriTan\Common\Password\PasswordHash;
 use Qubus\Hooks\ActionFilterHook;
 use Qubus\Exception\Data\TypeException;
 use Qubus\Exception\Http\Client\UnauthorizedException;
@@ -24,7 +27,7 @@ use Cascade\Cascade;
  */
 
 /**
- * Checks the permission of the logged in user.
+ * Checks if current user has specified permission or not.
  *
  * @file app/functions/auth.php
  *
@@ -50,7 +53,7 @@ function current_user_can($perm): bool
 }
 
 /**
- * Checks the role of the logged in user.
+ * Checks if current user has specified role or not.
  *
  * @file app/functions/auth.php
  *
@@ -64,7 +67,7 @@ function current_user_has_role(string $role): bool
     if ($current_user == false || empty($current_user)) {
         return false;
     }
-  
+
     $qudb = app()->qudb;
 
     return (
@@ -262,7 +265,7 @@ function ttcms_authenticate($login, $password, $rememberme)
             ),
             ttcms()->obj['app']->req->server['HTTP_REFERER']
         );
-        return;
+        return false;
     }
 
     /**
@@ -311,6 +314,7 @@ function ttcms_authenticate($login, $password, $rememberme)
  * @param string $login User's username or email address.
  * @param string $password User's password.
  * @param string $rememberme Whether to remember the user.
+ * @return null|bool Returns credentials if valid, null or false otherwise.
  */
 function ttcms_authenticate_user($login, $password, $rememberme)
 {
@@ -364,7 +368,7 @@ function ttcms_authenticate_user($login, $password, $rememberme)
                 ttcms()->obj['app']->req->server['HTTP_REFERER']
             );
         }
-        return;
+        return null;
     }
 
     if (validate_email($login)) {
@@ -377,7 +381,7 @@ function ttcms_authenticate_user($login, $password, $rememberme)
                 ),
                 ttcms()->obj['app']->req->server['HTTP_REFERER']
             );
-            return;
+            return false;
         }
     } else {
         $user = get_user_by('login', $login);
@@ -389,18 +393,18 @@ function ttcms_authenticate_user($login, $password, $rememberme)
                 ),
                 ttcms()->obj['app']->req->server['HTTP_REFERER']
             );
-            return;
+            return false;
         }
     }
 
-    $auth = new TriTan\Common\Password\PasswordCheck(
-        new \TriTan\Common\Password\PasswordSetMapper(
+    $auth = new PasswordCheck(
+        new PasswordSetMapper(
             $qudb,
-            new \TriTan\Common\Password\PasswordHash(
+            new PasswordHash(
                 ActionFilterHook::getInstance()
             )
         ),
-        new \TriTan\Common\Password\PasswordHash(
+        new PasswordHash(
             ActionFilterHook::getInstance()
         ),
         ActionFilterHook::getInstance()
@@ -413,7 +417,7 @@ function ttcms_authenticate_user($login, $password, $rememberme)
             ),
             ttcms()->obj['app']->req->server['HTTP_REFERER']
         );
-        return;
+        return false;
     }
 
     /**
@@ -557,7 +561,7 @@ function ttcms_login_form_show_message()
  *
  * @since 1.0.0
  * @param string $key COOKIE key.
- * @return mixed
+ * @return array|false Cookie data or false.
  */
 function get_secure_cookie_data($key)
 {

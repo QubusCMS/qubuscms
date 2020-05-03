@@ -587,7 +587,7 @@ function get_users_list($active = null)
  * @param string $object_subtype Optional. The subtype of the object type.
  * @return mixed Sanitized $meta_value.
  */
-function sanitize_user_meta($meta_key, $meta_value, $object_subtype = '')
+function sanitize_usermeta($meta_key, $meta_value, $object_subtype = '')
 {
     $qudb = app()->qudb;
 
@@ -610,7 +610,7 @@ function sanitize_user_meta($meta_key, $meta_value, $object_subtype = '')
  * @param bool   $single  Whether to return a single value.
  * @return array|string Will be an array if $single is false. Will be value of meta data field if $single is true.
  */
-function get_user_meta(int $user_id, string $key = '', bool $single = false)
+function get_usermeta(int $user_id, string $key = '', bool $single = false)
 {
     $qudb = app()->qudb;
 
@@ -631,7 +631,7 @@ function get_user_meta(int $user_id, string $key = '', bool $single = false)
  * @param int $mid
  * @return array|bool
  */
-function get_user_meta_by_mid(int $mid)
+function get_usermeta_by_mid(int $mid)
 {
     $qudb = app()->qudb;
 
@@ -660,7 +660,7 @@ function get_user_meta_by_mid(int $mid)
  * @param mixed  $prev_value Optional. Previous value to check before removing.
  * @return int|bool Meta ID if the key didn't exist, true on successful update, false on failure.
  */
-function update_user_meta(int $user_id, string $meta_key, $meta_value, $prev_value = '')
+function update_usermeta(int $user_id, string $meta_key, $meta_value, $prev_value = '')
 {
     $qudb = app()->qudb;
 
@@ -683,7 +683,7 @@ function update_user_meta(int $user_id, string $meta_key, $meta_value, $prev_val
  * @param mixed $meta_value
  * @return bool
  */
-function update_user_meta_by_mid(int $mid, string $meta_key, $meta_value)
+function update_usermeta_by_mid(int $mid, string $meta_key, $meta_value)
 {
     $_meta_key = ttcms()->obj['util']->unslash($meta_key);
     $_meta_value = ttcms()->obj['util']->unslash($meta_value);
@@ -708,7 +708,7 @@ function update_user_meta_by_mid(int $mid, string $meta_key, $meta_value)
  * @param bool   $unique     Optional. Whether the same key should not be added. Default false.
  * @return int|false Meta ID on success, false on failure.
  */
-function add_user_meta(int $user_id, string $meta_key, $meta_value, bool $unique = false)
+function add_usermeta(int $user_id, string $meta_key, $meta_value, bool $unique = false)
 {
     $qudb = app()->qudb;
 
@@ -735,7 +735,7 @@ function add_user_meta(int $user_id, string $meta_key, $meta_value, bool $unique
  * @param mixed  $meta_value Optional. Metadata value.
  * @return bool True on success, false on failure.
  */
-function delete_user_meta(int $user_id, string $meta_key, $meta_value = '')
+function delete_usermeta(int $user_id, string $meta_key, $meta_value = '')
 {
     $qudb = app()->qudb;
 
@@ -756,7 +756,7 @@ function delete_user_meta(int $user_id, string $meta_key, $meta_value = '')
  * @param int $mid
  * @return bool
  */
-function delete_user_meta_by_mid(int $mid)
+function delete_usermeta_by_mid(int $mid)
 {
     $qudb = app()->qudb;
 
@@ -847,7 +847,7 @@ function update_user_option(int $user_id, string $option_name, $newvalue, bool $
         $option_name = $qudb->prefix . $option_name;
     }
 
-    return update_user_meta($user_id, $option_name, $newvalue);
+    return update_usermeta($user_id, $option_name, $newvalue);
 }
 
 /**
@@ -874,7 +874,7 @@ function delete_user_option(int $user_id, string $option_name, bool $global = fa
         $option_name = $qudb->prefix. $option_name;
     }
 
-    return delete_user_meta($user_id, $option_name);
+    return delete_usermeta($user_id, $option_name);
 }
 
 /**
@@ -947,7 +947,11 @@ function ttcms_insert_user($userdata)
     } else {
         $update = false;
 
-        // Hash the password
+        /**
+         * Hash the plaintext password.
+         *
+         * @param string Hashed password.
+         */
         $user_pass = (new PasswordHash(ActionFilterHook::getInstance()))->hash($userdata['user_pass']);
 
         /**
@@ -1376,7 +1380,7 @@ function ttcms_insert_user($userdata)
      * @param object $user  User object.
      * @param bool $update  Whether the user is being updated rather than created.
      */
-    $meta = ActionFilterHook::getInstance()->applyFilter('insert_user_meta', $meta, $user, $update);
+    $meta = ActionFilterHook::getInstance()->applyFilter('insert_usermeta', $meta, $user, $update);
 
     // Update user meta.
     foreach ($meta as $key => $value) {

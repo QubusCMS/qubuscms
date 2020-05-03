@@ -1,5 +1,4 @@
 <?php
-use Cascade\Cascade;
 use TriTan\Common\Post\PostRepository;
 use TriTan\Common\Post\PostMapper;
 use TriTan\Common\Posttype\PosttypeRepository;
@@ -9,6 +8,7 @@ use TriTan\Csrf\Nonce;
 use Qubus\Hooks\ActionFilterHook;
 use Qubus\Exception\Data\TypeException;
 use Qubus\Exception\Exception;
+use Cascade\Cascade;
 
 $qudb = app()->qudb;
 

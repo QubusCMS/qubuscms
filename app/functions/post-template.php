@@ -178,7 +178,7 @@ function the_post_class($class = '', $post_id = null)
  */
 function the_meta(string $key)
 {
-    $the_meta = get_post_meta(c::getInstance()->get('post_id'), $key, true);
+    $the_meta = get_postmeta(c::getInstance()->get('post_id'), $key, true);
     /**
      * Filters post meta.
      *

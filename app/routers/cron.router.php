@@ -1,15 +1,19 @@
 <?php
 use TriTan\Queue\NodeqQueue as Queue;
-use Cascade\Cascade;
+use TriTan\NodeQ;
+use TriTan\Common\Options\Options;
+use TriTan\Common\Options\OptionsMapper;
+use TriTan\Common\Context\HelperContext;
 use Qubus\Hooks\ActionFilterHook;
 use Qubus\Exception\Exception;
+use Cascade\Cascade;
 
 $qudb = app()->qudb;
-$nodeq = new \TriTan\NodeQ;
-$opt = new \TriTan\Common\Options\Options(
-    new TriTan\Common\Options\OptionsMapper(
+$nodeq = new NodeQ;
+$opt = new Options(
+    new OptionsMapper(
         $qudb,
-        new TriTan\Common\Context\HelperContext()
+        new HelperContext()
     )
 );
 
@@ -33,13 +37,12 @@ $app->get('/cronjob/master/', function () use ($qudb) {
         "SELECT site_domain, site_path FROM {$qudb->base_prefix}site WHERE site_status <> ?",
         [
             'archive'
-        ],
-        ARRAY_A
+        ]
     );
 
-    $sites = $qudb->getResuts($prepare, ARRAY_A);
+    $sites = $qudb->getResults($prepare, ARRAY_A);
     foreach ($sites as $site) {
-        $command = "//" . $site['site_domain'] . $site['site_path'] . 'cronjob/';
+        $command = set_url_scheme($site['site_domain'] . $site['site_path'] . 'cronjob/');
         $ch = curl_init($command);
         $rc = curl_setopt($ch, CURLOPT_RETURNTRANSFER, false);
         $rc = curl_exec($ch);
@@ -51,6 +54,9 @@ $app->get('/cronjob/', function () use ($app, $qudb, $nodeq, $opt) {
     if ($opt->read('cron_jobs') != (int) 1) {
         exit();
     }
+
+    ttcms_nodeq_login_details();
+    ttcms_nodeq_reset_password();
 
     ActionFilterHook::getInstance()->{'doAction'}('ttcms_task_worker_cron');
 
@@ -211,7 +217,4 @@ $app->get('/cronjob/', function () use ($app, $qudb, $nodeq, $opt) {
             ]
         );
     }
-
-    ttcms_nodeq_login_details();
-    ttcms_nodeq_reset_password();
 });

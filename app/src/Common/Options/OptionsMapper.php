@@ -174,7 +174,7 @@ final class OptionsMapper implements OptionsMapperInterface
         $this->qudb->getConnection()->throwTransactionExceptions();
         try {
             $this->qudb->transaction(function () use ($option_key, $option_value) {
-                $this->qudb
+                $result = $this->qudb
                     ->update($this->qudb->prefix . 'option')
                     ->where('option_key')->is($option_key)
                     ->set([
@@ -182,7 +182,7 @@ final class OptionsMapper implements OptionsMapperInterface
                     ]);
             });
 
-            if ($this->qudb->count() > 0) {
+            if (@count($result) > 0) {
                 $this->qudb->option[$option_key] = $newvalue;
             }
         } catch (PDOException $ex) {

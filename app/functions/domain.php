@@ -2,6 +2,8 @@
 
 use TriTan\Common\Container as c;
 use TriTan\Common\Context\HelperContext;
+use TriTan\Common\FileSystem;
+use TriTan\Common\Options\OptionsMapper;
 use Qubus\Hooks\ActionFilterHook;
 
 /**
@@ -59,7 +61,7 @@ function ttcms_dropdown_languages($active = '')
     }
 
     $locales = (
-            new \TriTan\Common\FileSystem(
+            new FileSystem(
                 ActionFilterHook::getInstance()
             )
             )->getContents(esc_url($protocol . 'tritan-cms.s3.amazonaws.com/api/1.1/locale.json'));
@@ -841,7 +843,7 @@ function load_textdomain($domain, $path)
 function load_core_locale()
 {
     if (is_readable(BASE_PATH . 'config.php')) {
-        $locale = (new \TriTan\Common\Options\OptionsMapper(
+        $locale = (new OptionsMapper(
             app()->qudb,
             new HelperContext()
         ))->read('ttcms_core_locale');

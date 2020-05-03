@@ -66,7 +66,7 @@ final class PosttypeCache implements PosttypeCacheInterface
         $this->cache->delete((int) $posttype->getId(), 'posttypes');
         $this->cache->delete('posttypes', 'posttypes');
         $this->cache->flushNamespace('posts');
-        $this->cache->flushNamespace('post_meta');
+        $this->cache->flushNamespace('postmeta');
 
         /**
          * Fires immediately after the given posttype's cache is cleaned.

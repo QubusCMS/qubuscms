@@ -71,7 +71,7 @@ final class PostCache implements PostCacheInterface
         $this->cache->delete((int) $post->getId(), 'posts');
         $this->cache->delete($post->getSlug(), 'postslugs');
         $this->cache->delete($post->getPosttype(), 'post_posttypes');
-        $this->cache->delete((int) $post->getId(), 'post_meta');
+        $this->cache->delete((int) $post->getId(), 'postmeta');
 
         /**
          * Fires immediately after the given post's cache is cleaned.

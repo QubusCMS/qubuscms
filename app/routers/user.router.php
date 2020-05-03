@@ -1,9 +1,9 @@
 <?php
 use TriTan\Csrf\Nonce;
-use Cascade\Cascade;
 use Qubus\Hooks\ActionFilterHook;
 use Qubus\Exception\Exception;
 use Qubus\Exception\Data\NotFoundException;
+use Cascade\Cascade;
 
 $qudb = app()->qudb;
 $opt = new \TriTan\Common\Options\Options(
@@ -476,7 +476,7 @@ $app->group('/admin', function () use ($app, $opt, $qudb, $current_user) {
         }
     });
 
-    $app->post('/user/(\d+)/d/', function ($id) use ($app) {
+    $app->get('/user/(\d+)/d/', function ($id) use ($app) {
         $user = ttcms_delete_user($id, $app->req->post['assign_id']);
 
         if ($user) {

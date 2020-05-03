@@ -1,7 +1,7 @@
 <?php
-use Cascade\Cascade;
 use TriTan\Common\FileSystem;
 use Qubus\Exception\IO\IOException;
+use Cascade\Cascade;
 
 $hook = Qubus\Hooks\ActionFilterHook::getInstance();
 $helper = new TriTan\Common\Context\HelperContext();

@@ -93,7 +93,7 @@ final class MetaData implements MetaDataInterface
             }
         }
 
-        $meta_cache = $this->context->obj['cache']->read($array_id, $meta_type . '_meta');
+        $meta_cache = $this->context->obj['cache']->read($array_id, $meta_type . 'meta');
 
         if (!$meta_cache) {
             $meta_cache = $this->updateMetaDataCache($meta_type, [$array_id]);
@@ -226,7 +226,7 @@ final class MetaData implements MetaDataInterface
              * @param string $meta_key   Meta key.
              * @param mixed  $_meta_value Meta value.
              */
-            ActionFilterHook::getInstance()->doAction("update_{$meta_type}_meta", $meta_id, $array_id, $meta_key, $_meta_value);
+            ActionFilterHook::getInstance()->doAction("update_{$meta_type}meta", $meta_id, $array_id, $meta_key, $_meta_value);
         }
 
         if (! empty($prev_value)) {
@@ -262,7 +262,7 @@ final class MetaData implements MetaDataInterface
             return false;
         }
 
-        $this->context->obj['cache']->delete($array_id, $meta_type . '_meta');
+        $this->context->obj['cache']->delete($array_id, $meta_type . 'meta');
 
         foreach ($meta_ids as $meta_id) {
             /**
@@ -277,7 +277,7 @@ final class MetaData implements MetaDataInterface
              * @param string $meta_key   Meta key.
              * @param mixed  $_meta_value Meta value.
              */
-            ActionFilterHook::getInstance()->doAction("updated_{$meta_type}_meta", $meta_id, $array_id, $meta_key, $_meta_value);
+            ActionFilterHook::getInstance()->doAction("updated_{$meta_type}meta", $meta_id, $array_id, $meta_key, $_meta_value);
         }
 
         return true;
@@ -369,7 +369,7 @@ final class MetaData implements MetaDataInterface
          * @param string $meta_key   Meta key.
          * @param mixed  $meta_value Meta value.
          */
-        ActionFilterHook::getInstance()->doAction("add_{$meta_type}_meta", $array_id, $meta_key, $_meta_value);
+        ActionFilterHook::getInstance()->doAction("add_{$meta_type}meta", $array_id, $meta_key, $_meta_value);
 
         $this->qudb->getConnection()->throwTransactionExceptions();
         try {
@@ -398,7 +398,7 @@ final class MetaData implements MetaDataInterface
 
         $mid = (int) $result;
 
-        $this->context->obj['cache']->delete($array_id, $meta_type . '_meta');
+        $this->context->obj['cache']->delete($array_id, $meta_type . 'meta');
 
         /**
          * Fires immediately after meta of a specific type is added.
@@ -412,7 +412,7 @@ final class MetaData implements MetaDataInterface
          * @param string $meta_key   Meta key.
          * @param mixed  $meta_value Meta value.
          */
-        ActionFilterHook::getInstance()->doAction("added_{$meta_type}_meta", $mid, $array_id, $meta_key, $_meta_value);
+        ActionFilterHook::getInstance()->doAction("added_{$meta_type}meta", $mid, $array_id, $meta_key, $_meta_value);
 
         return $mid;
     }
@@ -544,7 +544,7 @@ final class MetaData implements MetaDataInterface
          * @param string $meta_key   Meta key.
          * @param mixed  $meta_value Meta value.
          */
-        ActionFilterHook::getInstance()->doAction("delete_{$meta_type}_meta", $meta_ids, $array_id, $meta_key, $_meta_value);
+        ActionFilterHook::getInstance()->doAction("delete_{$meta_type}meta", $meta_ids, $array_id, $meta_key, $_meta_value);
 
         $query = $this->qudb->prepare(
             "DELETE FROM $table WHERE meta_id IN(?)",
@@ -569,10 +569,10 @@ final class MetaData implements MetaDataInterface
 
         if ($delete_all) {
             foreach ((array) $array_ids as $a_id) {
-                $this->context->obj['cache']->delete($a_id, $meta_type . '_meta');
+                $this->context->obj['cache']->delete($a_id, $meta_type . 'meta');
             }
         } else {
-            $this->context->obj['cache']->delete($array_id, $meta_type . '_meta');
+            $this->context->obj['cache']->delete($array_id, $meta_type . 'meta');
         }
 
         /**
@@ -587,7 +587,7 @@ final class MetaData implements MetaDataInterface
          * @param string $meta_key   Meta key.
          * @param mixed  $meta_value Meta value.
          */
-        ActionFilterHook::getInstance()->doAction("deleted_{$meta_type}_meta", $meta_ids, $array_id, $meta_key, $_meta_value);
+        ActionFilterHook::getInstance()->doAction("deleted_{$meta_type}meta", $meta_ids, $array_id, $meta_key, $_meta_value);
 
         return true;
     }
@@ -618,7 +618,7 @@ final class MetaData implements MetaDataInterface
             return (bool) $check;
         }
 
-        $meta_cache = $this->context->obj['cache']->read($array_id, $meta_type . '_meta');
+        $meta_cache = $this->context->obj['cache']->read($array_id, $meta_type . 'meta');
 
         if (!$meta_cache) {
             $meta_cache = $this->updateMetaDataCache($meta_type, [$array_id]);
@@ -762,7 +762,7 @@ final class MetaData implements MetaDataInterface
             $meta_value = sanitize_meta($meta_key, $meta_value, $meta_type, $meta_subtype);
             $meta_value = $this->context->obj['serializer']->serialize($meta_value);
 
-            ActionFilterHook::getInstance()->doAction("update_{$meta_type}_meta", $meta_id, $array_id, $meta_key, $_meta_value);
+            ActionFilterHook::getInstance()->doAction("update_{$meta_type}meta", $meta_id, $array_id, $meta_key, $_meta_value);
 
             // Run the update query.
             $this->qudb->getConnection()->throwTransactionExceptions();
@@ -785,9 +785,9 @@ final class MetaData implements MetaDataInterface
             }
 
             // Clear the caches.
-            $this->context->obj['cache']->delete($array_id, $meta_type . '_meta');
+            $this->context->obj['cache']->delete($array_id, $meta_type . 'meta');
 
-            ActionFilterHook::getInstance()->doAction("updated_{$meta_type}_meta", $meta_id, $array_id, $meta_key, $_meta_value);
+            ActionFilterHook::getInstance()->doAction("updated_{$meta_type}meta", $meta_id, $array_id, $meta_key, $_meta_value);
 
             return true;
         }
@@ -843,7 +843,7 @@ final class MetaData implements MetaDataInterface
         if ($meta = $this->readByMid($meta_type, $meta_id)) {
             $array_id = $meta[$column];
 
-            ActionFilterHook::getInstance()->doAction("delete_{$meta_type}_meta", (array) $meta_id, $array_id, $meta['meta_key'], $meta['meta_value']);
+            ActionFilterHook::getInstance()->doAction("delete_{$meta_type}meta", (array) $meta_id, $array_id, $meta['meta_key'], $meta['meta_value']);
 
             // Run the query, will return true if deleted, false otherwise
             $this->qudb->getConnection()->throwTransactionExceptions();
@@ -856,9 +856,9 @@ final class MetaData implements MetaDataInterface
             }
 
             // Clear the caches.
-            $this->context->obj['cache']->delete($array_id, $meta_type . '_meta');
+            $this->context->obj['cache']->delete($array_id, $meta_type . 'meta');
 
-            ActionFilterHook::getInstance()->doAction("deleted_{$meta_type}_meta", (array) $meta_id, $array_id, $meta['meta_key'], $meta['meta_value']);
+            ActionFilterHook::getInstance()->doAction("deleted_{$meta_type}meta", (array) $meta_id, $array_id, $meta['meta_key'], $meta['meta_value']);
 
             return $result;
         }
@@ -911,7 +911,7 @@ final class MetaData implements MetaDataInterface
             return (bool) $check;
         }
 
-        $cache_key = $meta_type . '_meta';
+        $cache_key = $meta_type . 'meta';
         $ids = [];
         $cache = [];
         foreach ($array_ids as $id) {

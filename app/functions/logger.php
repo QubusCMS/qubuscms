@@ -3,6 +3,8 @@ use TriTan\Common\Container as c;
 use TriTan\Common\Options\Options;
 use TriTan\Common\Options\OptionsMapper;
 use TriTan\Common\Context\HelperContext;
+use TriTan\Common\Date;
+use TriTan\Common\Mailer;
 use Qubus\Hooks\ActionFilterHook;
 
 /**
@@ -73,7 +75,7 @@ $config = [
             'class' => '\TriTan\MailHandler',
             'level' => 'ALERT',
             'formatter' => 'exception',
-            'mailer' => new TriTan\Common\Mailer(),
+            'mailer' => new Mailer(),
             'message' => 'This message will be replaced with the real one.',
             'email_to' => ActionFilterHook::getInstance()->applyFilter(
                 'system_alert_email',
@@ -185,7 +187,7 @@ function ttcms_monolog($name, $message)
     $log->pushHandler(
         new \Monolog\Handler\StreamHandler(
             c::getInstance()->get('site_path') . 'files' . DS . 'logs' . DS . trim($name) . '.' . (
-                new \TriTan\Common\Date()
+                new Date()
             )->format('m-d-Y', 'now') . '.txt'
         )
     );
@@ -220,7 +222,7 @@ function ttcms_set_environment()
         ini_set(
             'error_log',
             c::getInstance()->get('site_path') . 'files' . DS . 'logs' . DS . 'ttcms-error-' . (
-            new \TriTan\Common\Date()
+            new Date()
             )->format('Y-m-d', 'now') . '.txt'
         );
         set_error_handler('ttcms_error_handler', E_ALL & ~E_NOTICE);

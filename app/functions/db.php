@@ -82,7 +82,7 @@ function get_posttype_by(string $field, $value)
  *
  * @since 1.0.0
  * @param string $post_slug The unique slug of a post.
- * @return int|PDOException|TypeException Post id.
+ * @return int|\\PDOException|\\Qubus\\Exception\\Data\\TypeException Post id.
  */
 function get_post_id($post_slug = null)
 {
@@ -132,14 +132,13 @@ function get_post_id($post_slug = null)
  * @since 1.0.0
  * @param string $title Text to be slugified.
  * @param string $table Table the text is saved to (i.e. post, posttype, site)
- * @return string
+ * @return string Slug.
  */
 function ttcms_slugify(string $title, $table = null)
 {
     $qudb = app()->qudb;
 
     $sanitize_table = ttcms()->obj['sanitizer']->item($table);
-
     /**
      * Instantiate the slugify class.
      */
@@ -150,9 +149,7 @@ function ttcms_slugify(string $title, $table = null)
      * being called.
      */
     $field = $sanitize_table . '_slug';
-
     $titles = [];
-
     /**
      * Query post/posttype/site document.
      */
@@ -161,7 +158,6 @@ function ttcms_slugify(string $title, $table = null)
     } else {
         $table = $qudb->prefix . $sanitize_table;
     }
-
     $slug_var = "$slug%";
     $sql = "SELECT *"
         . " FROM $table"
@@ -176,10 +172,8 @@ function ttcms_slugify(string $title, $table = null)
             $titles[] = $item["$field"];
         }
     }
-
     $total = count($titles);
     $last = end($titles);
-
     /**
      * No equal results, return $slug
      */
@@ -190,12 +184,10 @@ function ttcms_slugify(string $title, $table = null)
          * Take the only value of the array, because there is only 1.
          */
         $exists = $titles[0];
-
         /**
          * Kill the slug and see what happens
          */
         $exists = str_replace($slug, "", $exists);
-
         /**
          * If there is no light about, there was no number at the end.
          * We added it now
@@ -207,12 +199,10 @@ function ttcms_slugify(string $title, $table = null)
              * Obtain the number because of REGEX it will be there... ;-)
              */
             $number = str_replace("-", "", $exists);
-
             /**
              * Number plus one.
              */
             $number++;
-
             return $slug . "-" . $number;
         }
     } else { // If there is more than one result, we need the last one.
@@ -220,22 +210,18 @@ function ttcms_slugify(string $title, $table = null)
          * Last value
          */
         $exists = $last;
-
         /**
          * Delete the actual slug and see what happens
          */
         $exists = str_replace($slug, "", $exists);
-
         /**
          * Obtain the number, easy.
          */
         $number = str_replace("-", "", $exists);
-
         /**
          * Increment number +1
          */
         $number++;
-
         return $slug . "-" . $number;
     }
 }
@@ -249,7 +235,7 @@ function ttcms_slugify(string $title, $table = null)
  * @param string $post_type Post type.
  * @param int $limit        Number of posts to show.
  * @param null|int $offset  The offset of the first row to be returned.
- * @return array|PDOException Array of published posts or posts by particular post type.
+ * @return array|\\PDOException Array of published posts or posts by particular post type.
  */
 function get_all_posts($post_type = null, int $limit = 0, $offset = null, $status = 'all')
 {
@@ -327,7 +313,7 @@ function get_all_posts($post_type = null, int $limit = 0, $offset = null, $statu
  * @file app/functions/db.php
  *
  * @since 1.0.0
- * @return array|PDOException|TypeException
+ * @return array|\\PDOException|\\Qubus\\Exception\\Data\\TypeException
  */
 function tinymce_link_list()
 {
@@ -496,7 +482,7 @@ function ttcms_site_slug_exist($site_id, string $slug) : bool
  *
  * @since 1.0.0
  * @param int $post_id Post id to check.
- * @return bool|array|PDOException False if post has not children or array of children if true.
+ * @return bool|array|\\PDOException False if post has not children or array of children if true.
  */
 function is_post_parent(int $post_id)
 {
@@ -537,7 +523,7 @@ function is_post_parent(int $post_id)
  *
  * @since 1.0.0
  * @param string $post_posttype Posttype slug to check for.
- * @return bool|PDOException Returns true if posttype exists or false otherwise.
+ * @return bool|\\PDOException Returns true if posttype exists or false otherwise.
  */
 function is_post_posttype_exist(string $post_posttype) : bool
 {
@@ -576,6 +562,7 @@ function is_post_posttype_exist(string $post_posttype) : bool
  * @since 1.0.0
  * @param int $user_id    ID of user being removed.
  * @param int $assign_id  ID of user to whom posts will be assigned.
+ * @return bool|\\PDOException
  */
 function reassign_posts(int $user_id, int $assign_id)
 {
@@ -614,6 +601,7 @@ function reassign_posts(int $user_id, int $assign_id)
                         'post_author' => (int) $assign_id
                     ]);
             });
+            return true;
         } catch (\PDOException $ex) {
             ttcms()->obj['flash']->error(
                 sprintf(
@@ -635,6 +623,7 @@ function reassign_posts(int $user_id, int $assign_id)
  * @since 1.0.0
  * @param int   $user_id    ID of user being removed.
  * @param array $params     User parameters (assign_id and role).
+ * @return bool|\\PDOException
  */
 function reassign_sites(int $user_id, array $params = [])
 {
@@ -681,6 +670,7 @@ function reassign_sites(int $user_id, array $params = [])
                         'site_owner' => (int) $params['assign_id']
                     ]);
             });
+            return true;
         } catch (\PDOException $ex) {
             ttcms()->obj['flash']->error(
                 sprintf(
@@ -701,7 +691,7 @@ function reassign_sites(int $user_id, array $params = [])
  *
  * @since 1.0.0
  * @param int $user_id ID of user to check.
- * @return bool|PDOException Returns true if user has sites and false otherwise.
+ * @return bool|\\PDOException Returns true if user has sites and false otherwise.
  */
 function does_user_have_sites(int $user_id = 0)
 {
@@ -745,7 +735,7 @@ function does_user_have_sites(int $user_id = 0)
  *
  * @since 1.0.0
  * @param int $user_id The user's id.
- * @return array|PDOException|TypeException
+ * @return array|\\PDOException|\\Qubus\\Exception\\Data\\TypeException
  */
 function get_users_sites(int $user_id)
 {
@@ -790,6 +780,7 @@ function get_users_sites(int $user_id)
  *
  * @access private
  * @since 1.0.0
+ * @return bool|\\PDOException
  */
 function populate_options_cache()
 {
@@ -800,6 +791,7 @@ function populate_options_cache()
         foreach ($options as $option) {
             ttcms()->obj['cache']->create($option['option_key'], $option['option_value'], 'option');
         }
+        return true;
     } catch (\PDOException $ex) {
         Cascade::getLogger('error')->error(
             sprintf(
@@ -819,6 +811,7 @@ function populate_options_cache()
  *
  * @access private
  * @since 1.0.0
+ * @return bool|\\PDOException
  */
 function populate_usermeta_cache()
 {
@@ -832,6 +825,7 @@ function populate_usermeta_cache()
                 new HelperContext()
             ))->updateMetaDataCache('user', [$meta['user_id']]);
         }
+        return true;
     } catch (\PDOException $ex) {
         Cascade::getLogger('error')->error(
             sprintf(
@@ -851,6 +845,7 @@ function populate_usermeta_cache()
  *
  * @access private
  * @since 1.0.0
+ * @return bool|\\PDOException
  */
 function populate_postmeta_cache()
 {
@@ -869,6 +864,7 @@ function populate_postmeta_cache()
                 ]
             );
         }
+        return true;
     } catch (\PDOException $ex) {
         Cascade::getLogger('error')->error(
             sprintf(
@@ -887,7 +883,7 @@ function populate_postmeta_cache()
  * Gets a total number of posts based on posttype.
  *
  * @since 1.0.0
- * @return int|PDOException Returns int on success or PDOException on failure.
+ * @return int|\\PDOException Returns int on success or PDOException on failure.
  */
 function read_total_posts()
 {

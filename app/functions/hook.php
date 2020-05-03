@@ -1264,7 +1264,7 @@ function ttcms_dev_mode()
 {
     if (APP_ENV === 'DEV') {
         echo '<div class="alert dismissable alert-danger center sticky">' . esc_html__(
-            'Your system is currently in DEV mode. Please remember to set your system back to PROD mode after testing. When PROD mode is set, this warning message will disappear.'
+            'Your system is currently in DEV mode. Please remember to set your system to PROD mode after testing. When PROD mode is set, this warning message will disappear.'
         ) . '</div>';
     }
 }
@@ -1560,7 +1560,7 @@ function ttcms_encode_email_str($string)
  */
 function ttcms_editor($selector = null)
 {
-    ttcms_enqueue_js('default', '//cdn.tinymce.com/4/tinymce.min.js');
+    ttcms_enqueue_js('default', '//cdnjs.cloudflare.com/ajax/libs/tinymce/4.9.6/tinymce.min.js');
 
     if ($selector == null) {
         $mce_selector = '#post_content';
@@ -1710,8 +1710,7 @@ function ttcms_editor($selector = null)
                 }
             });
             return false;
-        }
-        ;
+        };
     </script>
     <?php
     /**
@@ -1940,7 +1939,7 @@ ActionFilterHook::getInstance()->addAction('login_form_top', 'ttcms_login_form_s
 ActionFilterHook::getInstance()->addAction('admin_notices', 'ttcms_dev_mode', 5);
 ActionFilterHook::getInstance()->addAction('save_site', 'new_site_schema', 5, 3);
 ActionFilterHook::getInstance()->addAction('save_site', 'create_site_directories', 5, 3);
-ActionFilterHook::getInstance()->addAction('deleted_site', 'delete_site_user_meta', 5, 2);
+ActionFilterHook::getInstance()->addAction('deleted_site', 'delete_site_usermeta', 5, 2);
 ActionFilterHook::getInstance()->addAction('deleted_site', 'delete_site_tables', 5, 2);
 ActionFilterHook::getInstance()->addAction('deleted_site', 'delete_site_directories', 5, 2);
 ActionFilterHook::getInstance()->addAction('init', 'update_main_site', 5);

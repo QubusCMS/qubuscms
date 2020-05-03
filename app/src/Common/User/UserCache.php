@@ -71,7 +71,7 @@ final class UserCache implements UserCacheInterface
         $this->cache->delete((int) $user->getId(), 'users');
         $this->cache->delete($user->getLogin(), 'userlogins');
         $this->cache->delete($user->getEmail(), 'useremail');
-        $this->cache->delete((int) $user->getId(), 'user_meta');
+        $this->cache->delete((int) $user->getId(), 'usermeta');
 
         /**
          * Fires immediately after the given user's cache is cleaned.

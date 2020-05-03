@@ -26,7 +26,7 @@ if (version_compare($ver = PHP_VERSION, $req = 7.3, '<')) {
  */
 $autoload = BASE_PATH . 'vendor' . DS . 'autoload.php';
 if (!is_file($autoload)) {
-    die("Please run: <i>composer update</i> to install dependencies.");
+    die("Please run: <i>composer install</i> to install dependencies.");
 }
 require_once($autoload);
 

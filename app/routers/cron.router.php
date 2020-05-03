@@ -1,15 +1,19 @@
 <?php
 use TriTan\Queue\NodeqQueue as Queue;
-use Cascade\Cascade;
+use TriTan\NodeQ;
+use TriTan\Common\Options\Options;
+use TriTan\Common\Options\OptionsMapper;
+use TriTan\Common\Context\HelperContext;
 use Qubus\Hooks\ActionFilterHook;
 use Qubus\Exception\Exception;
+use Cascade\Cascade;
 
 $qudb = app()->qudb;
-$nodeq = new \TriTan\NodeQ;
-$opt = new \TriTan\Common\Options\Options(
-    new TriTan\Common\Options\OptionsMapper(
+$nodeq = new NodeQ;
+$opt = new Options(
+    new OptionsMapper(
         $qudb,
-        new TriTan\Common\Context\HelperContext()
+        new HelperContext()
     )
 );
 

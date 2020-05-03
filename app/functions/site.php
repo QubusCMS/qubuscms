@@ -7,6 +7,10 @@ use TriTan\Common\Context\HelperContext;
 use TriTan\Common\User\User;
 use TriTan\Common\Date;
 use TriTan\Database\Schema\CreateTable;
+use TriTan\Common\Acl\RoleRepository;
+use TriTan\Common\Acl\RoleMapper;
+use TriTan\Common\MetaData;
+use TriTan\Common\FileSystem;
 use Qubus\Hooks\ActionFilterHook;
 use Qubus\Exception\Error;
 use Qubus\Exception\Exception;
@@ -293,7 +297,7 @@ function create_site_directories(int $site_id, $site, bool $update) : bool
  * @since 1.0.0
  * @param int $site_id Site ID.
  * @param object $old_site Site object of site that was deleted.
- * @return bool|\PDOException|\Qubus\Exception\Exception True on success or false on failure.
+ * @return bool|\\PDOException|\\Qubus\\Exception\\Exception True on success or false on failure.
  */
 function delete_site_usermeta(int $site_id, $old_site)
 {
@@ -543,8 +547,8 @@ function add_user_to_site($user, $site, string $role)
     $qudb = app()->qudb;
 
     try {
-        $acl = new TriTan\Common\Acl\RoleRepository(
-            new TriTan\Common\Acl\RoleMapper(
+        $acl = new RoleRepository(
+            new RoleMapper(
                 $qudb
             )
         );
@@ -725,7 +729,7 @@ function ttcms_insert_site($sitedata, bool $exception = false)
         /**
          * Create new site object.
          */
-        $site = new \TriTan\Common\Site\Site();
+        $site = new Site();
         $site->setId((int) $site_id);
     } else {
         $update = false;
@@ -745,7 +749,7 @@ function ttcms_insert_site($sitedata, bool $exception = false)
         /**
          * Create new site object.
          */
-        $site = new \TriTan\Common\Site\Site();
+        $site = new Site();
     }
 
     $raw_site_domain = isset($sitedata['subdomain']) ? trim(strtolower($sitedata['subdomain'])) . '.' . ttcms()->obj['app']->req->server['HTTP_HOST'] : trim(strtolower($sitedata['site_domain']));
@@ -909,9 +913,9 @@ function ttcms_insert_site($sitedata, bool $exception = false)
     );
     $site->setStatus($site_status);
 
-    $site_registered = (string) (new \TriTan\Common\Date())->current('db');
+    $site_registered = (string) (new Date())->current('db');
 
-    $site_modified = (string) (new \TriTan\Common\Date())->current('db');
+    $site_modified = (string) (new Date())->current('db');
 
     $compacted = compact(
         'site_id',
@@ -1104,7 +1108,7 @@ function ttcms_insert_site($sitedata, bool $exception = false)
  * @since 1.0.0
  * @param int|array|Site $sitedata An array of site data or a site object or site id.
  * @return int The updated site's id..
- * @throws \Qubus\Exception\Exception|\Qubus\Exception\Error
+ * @throws \\Qubus\\Exception\\Exception|\\Qubus\\Exception\\Error
  *         Throws an Exception or Error if the site could not be updated
  */
 function ttcms_update_site($sitedata, bool $exception = false)
@@ -1190,7 +1194,7 @@ function ttcms_update_site($sitedata, bool $exception = false)
  * @param int $site_id ID of site to delete.
  * @param bool $exception Whether to throw an exception.
  * @return bool|Error|Exception Returns true on delete or throw.
- * @throws \Qubus\Exception\Exception|\Qubus\Exception\Error
+ * @throws \\Qubus\\Exception\\Exception|\\Qubus\\Exception\\Error
  *         Throws an Exception or Error if site could not be deleted.
  */
 function ttcms_delete_site(int $site_id, bool $exception = false)
@@ -1420,7 +1424,7 @@ function ttcms_delete_site_user(int $user_id, array $params = [], bool $exceptio
 
         if ($meta) {
             foreach ($meta as $mid) {
-                (new TriTan\Common\MetaData(
+                (new MetaData(
                     $qudb,
                     new HelperContext()
                 ))->deleteByMid('user', $mid['meta_id']);
@@ -1553,7 +1557,7 @@ function new_site_schema(int $site_id, $site, bool $update)
     });
 
     $insert_data = (
-        new \TriTan\Common\FileSystem(
+        new FileSystem(
             ActionFilterHook::getInstance()
         )
     )->getContents(APP_PATH . 'views/_layouts/new_site_db_insert.tpl');

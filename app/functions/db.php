@@ -139,7 +139,6 @@ function ttcms_slugify(string $title, $table = null)
     $qudb = app()->qudb;
 
     $sanitize_table = ttcms()->obj['sanitizer']->item($table);
-
     /**
      * Instantiate the slugify class.
      */
@@ -150,9 +149,7 @@ function ttcms_slugify(string $title, $table = null)
      * being called.
      */
     $field = $sanitize_table . '_slug';
-
     $titles = [];
-
     /**
      * Query post/posttype/site document.
      */
@@ -161,7 +158,6 @@ function ttcms_slugify(string $title, $table = null)
     } else {
         $table = $qudb->prefix . $sanitize_table;
     }
-
     $slug_var = "$slug%";
     $sql = "SELECT *"
         . " FROM $table"
@@ -176,10 +172,8 @@ function ttcms_slugify(string $title, $table = null)
             $titles[] = $item["$field"];
         }
     }
-
     $total = count($titles);
     $last = end($titles);
-
     /**
      * No equal results, return $slug
      */
@@ -190,12 +184,10 @@ function ttcms_slugify(string $title, $table = null)
          * Take the only value of the array, because there is only 1.
          */
         $exists = $titles[0];
-
         /**
          * Kill the slug and see what happens
          */
         $exists = str_replace($slug, "", $exists);
-
         /**
          * If there is no light about, there was no number at the end.
          * We added it now
@@ -207,12 +199,10 @@ function ttcms_slugify(string $title, $table = null)
              * Obtain the number because of REGEX it will be there... ;-)
              */
             $number = str_replace("-", "", $exists);
-
             /**
              * Number plus one.
              */
             $number++;
-
             return $slug . "-" . $number;
         }
     } else { // If there is more than one result, we need the last one.
@@ -220,22 +210,18 @@ function ttcms_slugify(string $title, $table = null)
          * Last value
          */
         $exists = $last;
-
         /**
          * Delete the actual slug and see what happens
          */
         $exists = str_replace($slug, "", $exists);
-
         /**
          * Obtain the number, easy.
          */
         $number = str_replace("-", "", $exists);
-
         /**
          * Increment number +1
          */
         $number++;
-
         return $slug . "-" . $number;
     }
 }

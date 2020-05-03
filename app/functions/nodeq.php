@@ -3,6 +3,9 @@ use TriTan\Common\Mailer;
 use TriTan\NodeQ;
 use TriTan\Common\Date;
 use TriTan\Common\Container as c;
+use TriTan\Common\Options\Options;
+use TriTan\Common\Options\OptionsMapper;
+use TriTan\Common\Context\HelperContext;
 use Qubus\Hooks\ActionFilterHook;
 use Qubus\Exception\Exception;
 use Defuse\Crypto\Crypto;
@@ -76,10 +79,10 @@ function ttcms_nodeq_login_details()
 {
     $qudb = app()->qudb;
     $nodeq = new NodeQ();
-    $option = new \TriTan\Common\Options\Options(
-        new TriTan\Common\Options\OptionsMapper(
+    $option = new Options(
+        new OptionsMapper(
             $qudb,
-            new TriTan\Common\Context\HelperContext()
+            new HelperContext()
         )
     );
 
@@ -181,10 +184,10 @@ function ttcms_nodeq_reset_password()
 {
     $qudb = app()->qudb;
     $nodeq = new NodeQ();
-    $option = new \TriTan\Common\Options\Options(
-        new TriTan\Common\Options\OptionsMapper(
+    $option = new Options(
+        new OptionsMapper(
             $qudb,
-            new TriTan\Common\Context\HelperContext()
+            new HelperContext()
         )
     );
 

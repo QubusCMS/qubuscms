@@ -17,7 +17,11 @@ if (strpos($uri->getPathInfo('/rest'), "/rest") === 0) {
     require($app->config('routers_dir') . 'admin.router.php');
     _ttcms_post_router();
 } elseif (strpos($uri->getPathInfo('/login'), "/login") === 0) {
-    require($app->config('routers_dir') . 'login.router.php');
+    require($app->config('routers_dir') . 'auth.router.php');
+} elseif (strpos($uri->getPathInfo('/reset-password'), "/reset-password") === 0) {
+    require($app->config('routers_dir') . 'auth.router.php');
+} elseif (strpos($uri->getPathInfo('/logout'), "/logout") === 0) {
+    require($app->config('routers_dir') . 'auth.router.php');
 } elseif (strpos($uri->getPathInfo('/cronjob'), "/cronjob") === 0) {
     require($app->config('routers_dir') . 'cron.router.php');
 } else {

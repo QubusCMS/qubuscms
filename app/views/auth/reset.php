@@ -12,7 +12,7 @@ $this->section('auth');
 
 <div class="card fat">
   <div class="card-body">
-    <h4 class="card-title"><?=t__('Reset Password');?></h4>
+    <?php ActionFilterHook::getInstance()->{'doAction'}('reset_form_top'); ?>
     <form method="post" action="<?= site_url('reset-password/'); ?>" class="my-login-validation" novalidate="" autocomplete="off">
       <div class="form-group">
         <label for="username"><?=t__('Email');?></label>
@@ -30,6 +30,7 @@ $this->section('auth');
         <input type="submit" name="reset_password" class="btn btn-submit btn-block" value="<?=esc_attr__('Reset');?>">
       </div>
     </form>
+    <?php ActionFilterHook::getInstance()->{'doAction'}('reset_form_bottom'); ?>
   </div>
 </div>
 

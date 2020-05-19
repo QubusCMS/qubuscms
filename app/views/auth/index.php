@@ -12,7 +12,6 @@ $this->section('auth');
 
 <div class="card fat">
   <div class="card-body">
-    <h4 class="card-title"><?=t__('Login');?></h4>
     <?php ActionFilterHook::getInstance()->{'doAction'}('login_form_top'); ?>
     <form method="post" action="<?= login_url(); ?>" class="my-login-validation" novalidate="" autocomplete="off">
       <div class="form-group">

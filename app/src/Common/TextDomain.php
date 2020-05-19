@@ -41,7 +41,7 @@ class TextDomain
         if ($domain !== '') {
             return d__($domain, $msgid);
         } else {
-            return d__('qubus-cms', $msgid);
+            return d__('tritan-cms', $msgid);
         }
     }
 

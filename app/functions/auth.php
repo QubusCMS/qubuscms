@@ -455,14 +455,24 @@ function ttcms_set_auth_cookie($user, $rememberme = '')
          *
          * @since 1.0.0
          */
-        $expire = ActionFilterHook::getInstance()->applyFilter('auth_cookie_expiration', (c::getInstance()->get('option')->read('cookieexpire') !== '') ? c::getInstance()->get('option')->read('cookieexpire') : ttcms()->obj['app']->config('cookies.lifetime'));
+        $expire = ActionFilterHook::getInstance()->applyFilter(
+            'auth_cookie_expiration',
+            (c::getInstance()->get('option')->read('cookieexpire') !== '') ?
+            c::getInstance()->get('option')->read('cookieexpire') :
+            ttcms()->obj['app']->config('cookies.lifetime')
+        );
     } else {
         /**
          * Ensure the browser will continue to send the cookie until it expires.
          *
          * @since 1.0.0
          */
-        $expire = ActionFilterHook::getInstance()->applyFilter('auth_cookie_expiration', (ttcms()->obj['app']->config('cookies.lifetime') !== '') ? ttcms()->obj['app']->config('cookies.lifetime') : 86400);
+        $expire = ActionFilterHook::getInstance()->applyFilter(
+            'auth_cookie_expiration',
+            (ttcms()->obj['app']->config('cookies.lifetime') !== '') ?
+            ttcms()->obj['app']->config('cookies.lifetime') :
+            86400
+        );
     }
 
     $auth_cookie = [

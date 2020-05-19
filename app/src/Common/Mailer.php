@@ -1,12 +1,12 @@
 <?php
 namespace TriTan\Common;
 
-use Cascade\Cascade;
 use TriTan\Interfaces\MailerInterface;
-use TriTan\Error;
-use Qubus\Hooks\ActionFilterHook as hook;
+use Qubus\Hooks\ActionFilterHook;
+use Qubus\Exception\Error;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use Cascade\Cascade;
 
 /**
  * Mailer Class. Inspired by WordPress' wp_mail() function.
@@ -26,7 +26,7 @@ final class Mailer implements MailerInterface
     public function __construct()
     {
         $this->mailer = new PHPMailer();
-        $this->hook = hook::getInstance();
+        $this->hook = ActionFilterHook::getInstance();
     }
 
     /**

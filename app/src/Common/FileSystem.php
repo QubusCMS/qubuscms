@@ -1,11 +1,11 @@
 <?php
 namespace TriTan\Common;
 
-use TriTan\Error;
 use TriTan\Interfaces\FileSystemInterface;
 use Qubus\Hooks\Interfaces\ActionFilterHookInterface;
 use Qubus\Exception\Data\NotFoundException;
 use Qubus\Exception\IO\IOException;
+use Qubus\Exception\Error;
 use Qubus\Exception\Exception;
 
 final class FileSystem implements FileSystemInterface

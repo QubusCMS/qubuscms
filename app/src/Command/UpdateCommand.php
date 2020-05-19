@@ -8,7 +8,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 final class UpdateCommand extends Command
 {
-
     protected function getCurrentRelease()
     {
         $update = new \ParkerJ\AutoUpdate('static' . DIRECTORY_SEPARATOR . 'tmp', 'static' . DIRECTORY_SEPARATOR . 'tmp', 1800);
@@ -90,7 +89,7 @@ final class UpdateCommand extends Command
                 }
                 // Check for composer updates
                 $output->writeln('Checking for vendor updates.');
-                $output->writeln(shell_exec('composer update'));
+                $output->writeln(shell_exec('composer install'));
                 // Updates complete
                 $output->writeln('Core upgrade complete.');
             } else {

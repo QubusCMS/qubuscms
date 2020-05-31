@@ -26,7 +26,7 @@ $opt = new Options(
  * @package Qubus CMS
  * @author Joshua Parker <josh@joshuaparker.blog>
  */
-$app->before('POST|PUT|DELETE|OPTIONS', '/cronjob/', function () use ($app) {
+$app->before('POST|PUT|DELETE|OPTIONS', '/cronjob/master/', function () use ($app) {
     header('Content-Type: application/json');
     $app->res->_format('json', 404);
     exit();
@@ -48,6 +48,12 @@ $app->get('/cronjob/master/', function () use ($qudb) {
         $rc = curl_exec($ch);
         curl_close($ch);
     }
+});
+
+$app->before('POST|PUT|DELETE|OPTIONS', '/cronjob/', function () use ($app) {
+    header('Content-Type: application/json');
+    $app->res->_format('json', 404);
+    exit();
 });
 
 $app->get('/cronjob/', function () use ($app, $qudb, $nodeq, $opt) {

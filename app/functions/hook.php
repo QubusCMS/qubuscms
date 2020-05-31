@@ -14,6 +14,7 @@ use TriTan\Common\Plugin\PluginIsActivatedMapper;
 use Qubus\Hooks\ActionFilterHook;
 use Qubus\Exception\Http\Client\NotFoundException;
 use Qubus\Exception\IO\IOException;
+use Cascade\Cascade;
 
 /**
  * Qubus CMS Hooks Helper & Wrapper
@@ -1920,6 +1921,54 @@ function sanitize_meta($meta_key, $meta_value, $array_type, $array_subtype = '')
         $meta_key,
         $array_type
     );
+}
+
+/**
+ * Returns the auth screen logo.
+ *
+ * @since 1.0.0
+ * @return string The auth screen logo.
+ */
+function get_auth_screen_logo()
+{
+    $qudb = app()->qudb;
+
+    $locations = [];
+    /**
+     * First, check to see if a custom logo exists for a specific site.
+     * @var string $locations['site'] Custom logo for a specific site.
+     */
+    $locations['site'] = [
+      'relative_path' => 'private/sites/' . $qudb->site_id . '/uploads/auth-logo.png'
+    ];
+    /**
+     * Second, check to see if a custom global logo exists for the system.
+     * @var string $locations['global'] Custom logo for the whole system.
+     */
+    $locations['global'] = [
+      'relative_path' => 'private/files/images/auth-logo.png'
+    ];
+    /**
+     * Lastly, if the first two don't exist, then use the native Qubus CMS
+     * logo.
+     * @var string $locations['native'] Native logo.
+     */
+    $locations['native'] = [
+       'relative_path' => 'static/assets/img/auth/auth-logo.png'
+     ];
+    foreach ($locations as $location) {
+        if ((new FileSystem(ActionFilterHook::getInstance()))->exists($location['relative_path'], false)) {
+            $auth_logo = $location['relative_path'];
+        }
+    }
+    /**
+     * Filters the auth logo.
+     *
+     * @since 1.0.0
+     * @var string $logo The auth logo.
+     */
+    $logo = ActionFilterHook::getInstance()->applyFilter('auth_logo', $auth_logo);
+    return '<img src="'.$logo.'" alt="auth-logo" title="auth-logo">';
 }
 
 /**

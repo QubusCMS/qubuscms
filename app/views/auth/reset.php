@@ -7,7 +7,7 @@ $this->section('auth');
 ?>
 
 <div class="brand">
-  <img src="static/assets/img/auth/logo.jpg" alt="logo">
+  <?=get_auth_screen_logo();?>
 </div>
 
 <div class="card fat">

@@ -64,10 +64,11 @@
         "phpseclib/mcrypt_compat": "^1.0",
         "robmorgan/phinx": "^0.10.6",
         "psr/container": "^1.0",
-        "ayesh/stateless-csrf": "^1.0",
         "roave/security-advisories": "dev-master",
         "qubus/hooks": "^1.0",
-        "qubus/exception": "^1.0"
+        "qubus/exception": "^1.0",
+        "michaelesmith/throttle": "^0.2.0",
+        "cache/cache": "^1.0"
     },
     "suggest": {
       "jolicode/jolinotif": "^1.0",

@@ -1,3 +1,6 @@
+# No Longer Under Development
+Qubus CMS is no longer being maintained. It has been replaced by [Devflow](https://github.com/getdevflow/cmf), a headless content management framework with CQRS and Event Sourcing.
+
 # Qubus CMS
 Qubus CMS is a developer centric, lightweight content management system (CMS) and content management framework (CMF). It is easy to install, easy to manage, and easy to extend. The majority of Qubus' codebase is derived from WordPress, however, Qubus CMS is not a fork of WordPress. It also should not be seen as a replacement for WordPress, Drupal, Joomla or any of the top used CMS's out there.
 
